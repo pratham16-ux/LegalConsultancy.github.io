@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Stackly Legal Consultancy | Bengaluru</title>
+  <meta name="description" content="Book a consultation with Stackly Legal Consultancy Services — Richmond Road, Bengaluru. Call, write, or walk in Mon–Sat, 10:00–19:00 IST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* page-specific: contact layout */
+    .contact-cards .card{ text-align:center; }
+    .contact-cards .icon-ring{ margin-inline:auto; }
+    .contact-cards .card a.big{
+      display:block; font-family:var(--font-display); font-size:1.15rem;
+      color:var(--ink); margin-top:6px; transition:color .3s;
+    }
+    .contact-cards .card:hover a.big{ color:var(--bronze); }
+
+    .form-shell{
+      display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(30px,4vw,56px);
+      align-items:start;
+    }
+    .form-card{
+      background:var(--white); border:1px solid var(--line);
+      border-radius:var(--r-lg); padding:clamp(28px,4vw,46px);
+      box-shadow:var(--shadow-1);
+    }
+    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+    .side-card{
+      background:var(--ink-2); color:#C9D6E4; border-radius:var(--r-lg);
+      padding:clamp(28px,4vw,40px);
+      border:1px solid rgba(194,154,69,.35);
+      position:sticky; top:calc(var(--header-h) + 20px);
+    }
+    .side-card h3{ color:#EAF0F7; margin-bottom:18px; }
+    .side-card ul{ display:grid; gap:16px; }
+    .side-card li{ display:flex; gap:13px; font-size:.92rem; align-items:flex-start; }
+    .side-card svg{ width:18px; height:18px; color:var(--bronze-2); flex-shrink:0; margin-top:3px; }
+    .side-card .hrs{
+      margin-top:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,.12);
+      font-family:var(--font-mono); font-size:.74rem; letter-spacing:.1em; line-height:2.1;
+    }
+    .side-card .hrs b{ color:var(--bronze-2); font-weight:500; display:block; letter-spacing:.2em; text-transform:uppercase; margin-bottom:6px; }
+
+    #map{
+      height:440px; border-radius:var(--r-lg); border:1px solid var(--line);
+      box-shadow:var(--shadow-1); z-index:1;
+    }
+    .visit-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:26px; }
+    .visit-row .card{ padding:24px 22px; }
+    .visit-row .card b{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bronze); display:block; margin-bottom:8px; }
+    .visit-row .card p{ font-size:.9rem; }
+
+    @media (max-width:1024px){ .form-shell{ grid-template-columns:1fr; } .side-card{ position:static; } }
+    @media (max-width:640px){ .form-row{ grid-template-columns:1fr; } .visit-row{ grid-template-columns:1fr; } #map{ height:320px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Stackly Legal Consultancy home">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" width="130" height="52">
+        </span>
+        <span class="brand-tag">Legal<br>Consultancy</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Advocates</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-gold" href="#book">Book Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html"><span class="idx">§01</span>Home</a>
+    <a href="services.html"><span class="idx">§02</span>Services</a>
+    <a href="about.html"><span class="idx">§03</span>About</a>
+    <a href="team.html"><span class="idx">§04</span>Advocates</a>
+    <a href="contact.html" class="active"><span class="idx">§05</span>Contact</a>
+    <p class="panel-foot">Stackly Legal · Richmond Road, Bengaluru · +91 80 4712 5890</p>
+  </div>
+
+  <main>
+
+    <!-- 01 · HERO -->
+    <section class="hero short flush">
+      <div class="hero-media">
+        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1486406146926-c627a92ad1ab&w=1600&h=900&fit=cover&output=webp&q=55" alt="The Richmond Road building at dusk" fetchpriority="high">
+      </div>
+      <div class="wrap">
+        <div class="docket" data-stagger="1"><span class="code">§ 05 · Contact</span><span class="rule"></span></div>
+        <h1 data-stagger="2">Start with the facts. <em class="gild">We'll take it from there.</em></h1>
+        <p class="lead" data-stagger="3">Write, call, or walk into Richmond Road — every enquiry gets a written reply within 48 working hours.</p>
+        <div class="hero-actions" data-stagger="4">
+          <a class="btn btn-gold" href="#book">Book a Consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="tel:+918047125890">Call +91 80 4712 5890</a>
+        </div>
+      </div>
+      <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <!-- 02 · MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>48-Hour Written Reply</span><span>Mon–Sat 10:00–19:00</span><span>Richmond Road</span><span>Video Consultations</span><span>English · Kannada · Hindi</span><span>48-Hour Written Reply</span><span>Mon–Sat 10:00–19:00</span><span>Richmond Road</span><span>Video Consultations</span><span>English · Kannada · Hindi</span>
+      </div>
+    </div>
+
+    <!-- 03 · CONTACT CARDS -->
+    <section class="zone-ivory tight contact-cards">
+      <div class="wrap">
+        <div class="grid-3">
+          <article class="card rv rv-up" data-d="1">
+            <div class="icon-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.6 3a2 2 0 0 1-.6 1.9L7.9 9.8a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 1.9-.6l3 .6a2 2 0 0 1 1.7 2z"/></svg></div>
+            <span class="c-code">Call the Desk</span>
+            <a class="big" href="tel:+918047125890">+91 80 4712 5890</a>
+            <p style="margin-top:8px;">Mon–Sat, 10:00–19:00 IST</p>
+          </article>
+          <article class="card rv rv-up" data-d="2">
+            <div class="icon-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg></div>
+            <span class="c-code">Write to Us</span>
+            <a class="big" href="mailto:counsel@stacklylegal.in">counsel@stacklylegal.in</a>
+            <p style="margin-top:8px;">Attach documents as PDF</p>
+          </article>
+          <article class="card rv rv-up" data-d="3">
+            <div class="icon-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+            <span class="c-code">Walk In</span>
+            <a class="big" href="#map">Meridian Chambers</a>
+            <p style="margin-top:8px;">Richmond Road, Bengaluru 560025</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · FORM + SIDE INFO -->
+    <section class="zone-white" id="book">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 01 · Open an Enquiry</span><span class="rule"></span></div>
+          <h2>Tell us the matter in your own words.</h2>
+        </div>
+        <div class="form-shell">
+          <div class="form-card rv rv-left">
+            <form id="consult-form" novalidate>
+              <div class="form-ok">Thank you — your enquiry is on file. A desk lead will reply in writing within 48 working hours.</div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="fname">Full name</label>
+                  <input id="fname" name="name" type="text" placeholder="e.g. Ramesh Kulkarni" data-req>
+                  <span class="err-msg">Please enter your full name.</span>
+                </div>
+                <div class="field">
+                  <label for="fphone">Mobile number</label>
+                  <input id="fphone" name="phone" type="tel" placeholder="10-digit mobile" data-req>
+                  <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="femail">Email</label>
+                  <input id="femail" name="email" type="email" placeholder="you@example.com" data-req>
+                  <span class="err-msg">Enter a valid email address.</span>
+                </div>
+                <div class="field">
+                  <label for="fdesk">Which desk?</label>
+                  <select id="fdesk" name="desk">
+                    <option>Corporate &amp; Commercial</option>
+                    <option>Property &amp; Title</option>
+                    <option>Civil Litigation</option>
+                    <option>Startup &amp; Compliance</option>
+                    <option>Family &amp; Succession</option>
+                    <option>Contracts &amp; Drafting</option>
+                    <option>Not sure — help me choose</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="fmode">Preferred consultation mode</label>
+                <select id="fmode" name="mode">
+                  <option>In person — Richmond Road</option>
+                  <option>Video call</option>
+                  <option>Phone call</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fmsg">The matter, briefly</label>
+                <textarea id="fmsg" name="message" placeholder="Two or three lines are enough — what happened, and what outcome you're hoping for." data-req></textarea>
+                <span class="err-msg">Please describe your matter in a line or two.</span>
+              </div>
+              <button class="btn btn-gold" type="submit">Send Enquiry
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+          </div>
+          <aside class="side-card rv rv-right">
+            <h3>What happens next</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><span>Written acknowledgment the same working day.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg><span>A desk lead replies within 48 working hours with next steps.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3a2.4 2.4 0 0 1 4 4L8 20l-5 1 1-5L17 3z"/></svg><span>If you proceed, a scope note with a fixed INR fee follows in three days.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a5 5 0 0 1 5 5v3h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5zM9 9h6V6a3 3 0 0 0-6 0v3z"/></svg><span>Everything you write here stays privileged and confidential.</span></li>
+            </ul>
+            <div class="hrs">
+              <b>Chamber Hours</b>
+              Mon – Fri · 10:00 – 19:00<br>
+              Saturday · 10:00 – 16:00<br>
+              Sunday · Closed
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · MAP + VISIT -->
+    <section class="zone-ivory">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 02 · Find the Chambers</span><span class="rule"></span></div>
+          <h2>Richmond Road, between the church and the flyover.</h2>
+        </div>
+        <div id="map" class="rv rv-zoom" data-d="2" aria-label="Map showing Meridian Chambers, Richmond Road, Bengaluru"></div>
+        <div class="visit-row">
+          <article class="card rv rv-up" data-d="1"><b>By Metro</b><p>Purple Line to MG Road station, then a 10-minute auto down Richmond Road.</p></article>
+          <article class="card rv rv-up" data-d="2"><b>Parking</b><p>Basement visitor parking at Meridian Chambers — tell the desk your car number when booking.</p></article>
+          <article class="card rv rv-up" data-d="3"><b>Landmark</b><p>Opposite the Hockey Stadium gate; the bronze §  plaque marks our entrance on the 3rd floor.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · CONSULT STEPS -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 03 · Your First Consultation</span><span class="rule"></span></div>
+          <h2>Forty-five minutes, four movements.</h2>
+        </div>
+        <div class="steps">
+          <div class="step rv rv-flip" data-d="1"><h3>The Facts</h3><p>You talk, we listen and note. Bring whatever papers you have — organised or not.</p></div>
+          <div class="step rv rv-flip" data-d="2"><h3>The Law</h3><p>We map your facts to the legal position, in plain English or Kannada as you prefer.</p></div>
+          <div class="step rv rv-flip" data-d="3"><h3>The Routes</h3><p>Every available path — notice, mediation, suit, or walking away — with honest odds for each.</p></div>
+          <div class="step rv rv-flip" data-d="4"><h3>The Number</h3><p>If you want to proceed, an indicative fixed fee before you leave the room.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · STATS -->
+    <section class="zone-ink stats-band tight">
+      <div class="wrap">
+        <div class="grid-4">
+          <div class="stat rv rv-up" data-d="1"><b><span data-count="48" data-suffix="h">0</span></b><span>Max reply time</span></div>
+          <div class="stat rv rv-up" data-d="2"><b><span data-count="45" data-suffix="m">0</span></b><span>First consultation</span></div>
+          <div class="stat rv rv-up" data-d="3"><b><span data-count="3">0</span></b><span>Languages spoken</span></div>
+          <div class="stat rv rv-up" data-d="4"><b><span data-count="6">0</span></b><span>Days open a week</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · CONSULTATION FEE NOTE -->
+    <section class="zone-ivory tight">
+      <div class="wrap split">
+        <div class="split-copy rv rv-left">
+          <div class="docket"><span class="code">§ 04 · Consultation Fee</span><span class="rule"></span></div>
+          <h2>₹2,500 for 45 minutes — <em class="gild">adjusted in full</em> if you engage us.</h2>
+          <p class="lead" style="margin-top:14px;">Paid by UPI or card when you book. If your matter becomes a mandate within 30 days, the fee is credited against it entirely. Legal-aid-eligible clients are seen free at our Wednesday clinic.</p>
+        </div>
+        <div class="split-media rv rv-right">
+          <div class="frame">
+            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1554224155-6726b3ff858f&w=900&h=640&fit=cover&output=webp&q=58" alt="Transparent fee working on paper" loading="lazy" style="aspect-ratio:16/11;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · FAQ -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 05 · Before You Visit</span><span class="rule"></span></div>
+          <h2>Small questions, quick answers.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq rv rv-up" data-d="1">
+            <button class="faq-q">What should I bring to the first meeting?<span class="fx">+</span></button>
+            <div class="faq-a"><p>Whatever documents touch the matter — agreements, notices, receipts, WhatsApp screenshots. Don't worry about order; sorting them is part of what the consultation is for.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="2">
+            <button class="faq-q">Can I consult over video instead of visiting?<span class="fx">+</span></button>
+            <div class="faq-a"><p>Yes — video consultations run daily and work exactly like in-person ones. You'll receive a meeting link and a document-upload folder when you book.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="3">
+            <button class="faq-q">Is what I share confidential even if I don't engage you?<span class="fx">+</span></button>
+            <div class="faq-a"><p>Completely. Advocate–client privilege attaches from the first conversation, whether or not a mandate follows. Your papers are returned or destroyed as you instruct.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="4">
+            <button class="faq-q">Do you take urgent same-day matters?<span class="fx">+</span></button>
+            <div class="faq-a"><p>For genuine urgencies — an injunction hearing tomorrow, a registration today — call the desk directly and say "urgent" first. We keep one partner slot open each afternoon for exactly this.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · LANGUAGES / ACCESS -->
+    <section class="zone-ivory tight">
+      <div class="wrap">
+        <div class="docket rv rv-up"><span class="code">§ 06 · Access</span><span class="rule"></span></div>
+        <div class="pill-row rv rv-up" data-d="2">
+          <span class="pill">English</span><span class="pill">ಕನ್ನಡ Kannada</span><span class="pill">हिन्दी Hindi</span><span class="pill">Wheelchair-accessible chambers</span><span class="pill">Wednesday free legal-aid clinic</span><span class="pill">Women-advocate consultations on request</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · CTA -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="cta-banner rv rv-zoom">
+          <div class="docket on-dark center"><span class="rule"></span><span class="code">§ 07 · One More Step</span><span class="rule"></span></div>
+          <h2>The form takes two minutes. The clarity lasts longer.</h2>
+          <p class="lead">Send the enquiry now — a desk lead reads every single one.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#book">Go to the Form
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="tel:+918047125890">Or Just Call Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="f-brand">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" loading="lazy" width="130" height="52">
+        </span>
+        <p>Stackly Legal Consultancy Services — plain-language counsel for businesses and families across Karnataka since 2008.</p>
+      </div>
+      <div class="f-col">
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Advocates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="services.html">Corporate &amp; Commercial</a></li>
+          <li><a href="services.html">Property &amp; Title</a></li>
+          <li><a href="services.html">Civil Litigation</a></li>
+          <li><a href="services.html">Startup Compliance</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Chambers</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span>3rd Floor, Meridian Chambers,<br>Richmond Road, Bengaluru 560025</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.6 3a2 2 0 0 1-.6 1.9L7.9 9.8a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 1.9-.6l3 .6a2 2 0 0 1 1.7 2z"/></svg><span>+91 80 4712 5890</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><span>counsel@stacklylegal.in</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap">
+        <span>© 2026 Stackly Legal Consultancy · SNAB Solutions</span>
+        <span>Mon–Sat · 10:00–19:00 IST</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    /* Leaflet map — Meridian Chambers, Richmond Road */
+    (function () {
+      if (typeof L === "undefined") return;
+      var spot = [12.9645, 77.6046];
+      var map = L.map("map", { scrollWheelZoom: false }).setView(spot, 15);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(map);
+      var pin = L.divIcon({
+        className: "",
+        html: '<div style="width:38px;height:38px;background:#A9812F;border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 8px 18px rgba(12,26,43,.35);display:grid;place-items:center;"><span style="transform:rotate(45deg);color:#fff;font-family:Georgia,serif;font-size:17px;">§</span></div>',
+        iconSize: [38, 38],
+        iconAnchor: [19, 38]
+      });
+      L.marker(spot, { icon: pin }).addTo(map)
+        .bindPopup("<b>Stackly Legal Consultancy</b><br>Meridian Chambers, Richmond Road");
+    })();
+  </script>
+</body>
+</html>

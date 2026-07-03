@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Stackly Legal Consultancy | Bengaluru</title>
+  <meta name="description" content="Corporate counsel, property title verification, civil litigation, startup compliance, family law and contract drafting — fixed fees in INR, Bengaluru.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* page-specific: retainer plans */
+    .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch; }
+    .plan{
+      background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg);
+      padding:38px 32px; display:flex; flex-direction:column;
+      transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s;
+    }
+    .plan:hover{ transform:translateY(-10px); box-shadow:var(--shadow-2); border-color:var(--line-gold); }
+    .plan.feature{ background:var(--ink-2); color:#EAF0F7; border-color:rgba(194,154,69,.4); position:relative; }
+    .plan.feature .flag{
+      position:absolute; top:22px; right:22px;
+      font-family:var(--font-mono); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase;
+      background:var(--bronze); color:var(--white); padding:6px 12px; border-radius:30px;
+    }
+    .plan .p-code{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bronze); margin-bottom:14px; }
+    .plan h3{ font-size:1.35rem; }
+    .plan .price{ font-family:var(--font-display); font-size:2.4rem; font-weight:560; margin:16px 0 4px; }
+    .plan .price small{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-top:6px; }
+    .plan.feature .price small{ color:#93A6BB; }
+    .plan ul{ margin:22px 0 28px; display:grid; gap:12px; flex:1; }
+    .plan li{ display:flex; gap:11px; font-size:.92rem; align-items:flex-start; }
+    .plan.feature li{ color:#C9D6E4; }
+    .plan li::before{ content:"§"; font-family:var(--font-mono); color:var(--bronze); font-size:.82rem; margin-top:1px; }
+    @media (max-width:1024px){ .plans{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Stackly Legal Consultancy home">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" width="130" height="52">
+        </span>
+        <span class="brand-tag">Legal<br>Consultancy</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Advocates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-gold" href="contact.html">Book Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html"><span class="idx">§01</span>Home</a>
+    <a href="services.html" class="active"><span class="idx">§02</span>Services</a>
+    <a href="about.html"><span class="idx">§03</span>About</a>
+    <a href="team.html"><span class="idx">§04</span>Advocates</a>
+    <a href="contact.html"><span class="idx">§05</span>Contact</a>
+    <p class="panel-foot">Stackly Legal · Richmond Road, Bengaluru · +91 80 4712 5890</p>
+  </div>
+
+  <main>
+
+    <!-- 01 · HERO -->
+    <section class="hero short flush">
+      <div class="hero-media">
+        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1589391886645-d51941baf7fb&w=1600&h=900&fit=cover&output=webp&q=55" alt="Bound law reports on a chambers shelf" fetchpriority="high">
+      </div>
+      <div class="wrap">
+        <div class="docket" data-stagger="1"><span class="code">§ 02 · Services</span><span class="rule"></span></div>
+        <h1 data-stagger="2">Six desks. Fixed fees. <em class="gild">No fine print.</em></h1>
+        <p class="lead" data-stagger="3">Every engagement below starts with a written scope and an INR figure you approve before we draft a word.</p>
+        <div class="hero-actions" data-stagger="4">
+          <a class="btn btn-gold" href="#desks">Browse the Desks
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#retainers">Retainer Plans</a>
+        </div>
+      </div>
+      <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <!-- 02 · MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Written Opinions</span><span>Fixed-Fee Mandates</span><span>Title Reports</span><span>ROC Filings</span><span>Court Representation</span><span>Contract Vetting</span><span>Written Opinions</span><span>Fixed-Fee Mandates</span><span>Title Reports</span><span>ROC Filings</span><span>Court Representation</span><span>Contract Vetting</span>
+      </div>
+    </div>
+
+    <!-- 03 · INTRO -->
+    <section class="zone-ivory tight">
+      <div class="wrap split">
+        <div class="split-copy rv rv-left">
+          <div class="docket"><span class="code">§ 01 · How Engagements Work</span><span class="rule"></span></div>
+          <h2>One desk owns your matter. <em class="gild">One number</em> covers it.</h2>
+          <p class="lead" style="margin-top:14px;">You are assigned a lead advocate from the relevant desk, and that advocate signs every opinion, appears at every hearing, and answers your calls. Fees below are indicative starting points — your engagement letter fixes the exact figure.</p>
+        </div>
+        <div class="split-media rv rv-right">
+          <div class="frame">
+            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1521791136064-7986c2920216&w=900&h=640&fit=cover&output=webp&q=60" alt="Client and counsel shaking hands over an engagement letter" loading="lazy" style="aspect-ratio:16/11;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · SERVICE DESKS -->
+    <section class="zone-white" id="desks">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 02 · The Six Desks</span><span class="rule"></span></div>
+          <h2>Pick the desk. We'll pick up the file.</h2>
+        </div>
+        <div class="grid-2">
+          <article class="card rv rv-left" data-d="1">
+            <span class="c-code">SL / CORP · from ₹35,000</span>
+            <h3>Corporate &amp; Commercial</h3>
+            <p>Shareholder and vendor agreements, board resolutions, ROC and MCA compliance calendars, MSME payment recovery notices, and standing counsel arrangements for growing companies.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="card rv rv-right" data-d="1">
+            <span class="c-code">SL / PROP · from ₹18,000</span>
+            <h3>Property &amp; Title Verification</h3>
+            <p>30-year title search with EC and khata verification, sale deed and agreement drafting, RERA complaint filing, and registration-day representation at the sub-registrar's office.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="card rv rv-left" data-d="2">
+            <span class="c-code">SL / CIVIL · from ₹45,000</span>
+            <h3>Civil Litigation</h3>
+            <p>Money recovery suits, permanent and temporary injunctions, consumer forum matters, arbitration and appeals — pleadings drafted and argued by the same counsel throughout.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="card rv rv-right" data-d="2">
+            <span class="c-code">SL / START · from ₹25,000</span>
+            <h3>Startup &amp; Compliance</h3>
+            <p>Incorporation with founder agreements, ESOP scheme drafting, SAFE and term-sheet review, DPDP-compliant privacy policies, and investor due-diligence readiness audits.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="card rv rv-left" data-d="3">
+            <span class="c-code">SL / FAM · from ₹15,000</span>
+            <h3>Family &amp; Succession</h3>
+            <p>Registered wills, partition and settlement deeds, succession and legal-heir certificates, and mediation-first resolution of family property disputes, handled with complete discretion.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="card rv rv-right" data-d="3">
+            <span class="c-code">SL / DRAFT · from ₹8,000</span>
+            <h3>Contracts &amp; Drafting</h3>
+            <p>Employment, lease, franchise, NDA and service agreements — drafted fresh or vetted clause by clause, each returned with a one-page note on what changed and why.</p>
+            <a class="c-link" href="contact.html">Open a file <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · RETAINER PLANS -->
+    <section class="zone-ivory" id="retainers">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 03 · Retainers</span><span class="rule"></span></div>
+          <h2>For businesses that need counsel on call.</h2>
+          <p class="lead">Monthly retainers for companies that would rather prevent disputes than fight them.</p>
+        </div>
+        <div class="plans">
+          <div class="plan rv rv-up" data-d="1">
+            <span class="p-code">SL / R-01</span>
+            <h3>Counsel Lite</h3>
+            <div class="price">₹24,000 <small>per month · billed quarterly</small></div>
+            <ul>
+              <li>Up to 6 contract reviews a month</li>
+              <li>Two advisory calls with your desk lead</li>
+              <li>Compliance calendar and reminders</li>
+              <li>48-hour written turnaround</li>
+            </ul>
+            <a class="btn btn-ghost" href="contact.html">Start Counsel Lite</a>
+          </div>
+          <div class="plan feature rv rv-up" data-d="2">
+            <span class="flag">Most Chosen</span>
+            <span class="p-code">SL / R-02</span>
+            <h3>Standing Counsel</h3>
+            <div class="price" style="color:var(--bronze-2);">₹55,000 <small>per month · billed quarterly</small></div>
+            <ul>
+              <li>Unlimited contract drafting and review</li>
+              <li>Weekly advisory call plus WhatsApp line</li>
+              <li>ROC / MCA filings handled end to end</li>
+              <li>Notices and replies included</li>
+              <li>24-hour written turnaround</li>
+            </ul>
+            <a class="btn btn-gold" href="contact.html">Start Standing Counsel</a>
+          </div>
+          <div class="plan rv rv-up" data-d="3">
+            <span class="p-code">SL / R-03</span>
+            <h3>Board Counsel</h3>
+            <div class="price">₹1,10,000 <small>per month · billed quarterly</small></div>
+            <ul>
+              <li>Everything in Standing Counsel</li>
+              <li>Partner attends monthly board meeting</li>
+              <li>Litigation strategy and management</li>
+              <li>Annual legal-health audit report</li>
+            </ul>
+            <a class="btn btn-ghost" href="contact.html">Start Board Counsel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · WHAT'S INCLUDED -->
+    <section class="zone-white tight">
+      <div class="wrap split rev">
+        <div class="split-copy rv rv-right">
+          <div class="docket"><span class="code">§ 04 · Every Engagement Includes</span><span class="rule"></span></div>
+          <h2>The parts other firms <em class="gild">bill as extras.</em></h2>
+          <ul class="ticks">
+            <li>A signed engagement letter fixing scope and fee</li>
+            <li>Plain-language summaries with every legal document</li>
+            <li>Fortnightly status notes, hearing alerts on WhatsApp</li>
+            <li>Digital copies of every filing in a shared folder</li>
+            <li>A closing note recording outcome and next obligations</li>
+          </ul>
+        </div>
+        <div class="split-media rv rv-left">
+          <div class="frame">
+            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1554224155-6726b3ff858f&w=900&h=640&fit=cover&output=webp&q=60" alt="Itemised engagement paperwork with calculator" loading="lazy" style="aspect-ratio:16/11;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · PROCESS -->
+    <section class="zone-ivory">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 05 · Engagement Path</span><span class="rule"></span></div>
+          <h2>Four steps between your call and our first filing.</h2>
+        </div>
+        <div class="steps">
+          <div class="step rv rv-flip" data-d="1"><h3>Brief Us</h3><p>Send the facts and documents through the contact form or bring them to Richmond Road.</p></div>
+          <div class="step rv rv-flip" data-d="2"><h3>Scope &amp; Quote</h3><p>The relevant desk returns a scope note with a fixed INR fee within three working days.</p></div>
+          <div class="step rv rv-flip" data-d="3"><h3>Sign &amp; Start</h3><p>Engagement letter signed, advance paid via UPI or transfer, work begins the same week.</p></div>
+          <div class="step rv rv-flip" data-d="4"><h3>Deliver &amp; Close</h3><p>Drafts, filings and hearings until the matter closes with a written outcome note.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · INDUSTRIES -->
+    <section class="zone-ink tight">
+      <div class="wrap">
+        <div class="docket on-dark rv rv-up"><span class="code">§ 06 · Sectors We Serve</span><span class="rule"></span></div>
+        <div class="eyeline" style="margin-bottom:30px;">
+          <h2 class="rv rv-up" style="color:#EAF0F7;">Familiar with your paperwork already.</h2>
+        </div>
+        <div class="pill-row rv rv-up" data-d="2">
+          <span class="pill">Technology &amp; SaaS</span><span class="pill">Real Estate &amp; RERA</span><span class="pill">Manufacturing</span><span class="pill">Healthcare</span><span class="pill">Hospitality &amp; F&amp;B</span><span class="pill">Logistics</span><span class="pill">Education</span><span class="pill">Agri Exports</span><span class="pill">Retail &amp; D2C</span><span class="pill">NGOs &amp; Trusts</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · STATS -->
+    <section class="zone-white stats-band tight">
+      <div class="wrap">
+        <div class="grid-4">
+          <div class="stat rv rv-zoom" data-d="1"><b style="color:var(--bronze);"><span data-count="72" data-suffix="h">0</span></b><span style="color:var(--muted);">Avg. scope-note turnaround</span></div>
+          <div class="stat rv rv-zoom" data-d="2"><b style="color:var(--bronze);"><span data-count="100" data-suffix="%">0</span></b><span style="color:var(--muted);">Fees fixed before work</span></div>
+          <div class="stat rv rv-zoom" data-d="3"><b style="color:var(--bronze);"><span data-count="380" data-suffix="+">0</span></b><span style="color:var(--muted);">Active retainers</span></div>
+          <div class="stat rv rv-zoom" data-d="4"><b style="color:var(--bronze);"><span data-count="0">0</span></b><span style="color:var(--muted);">Surprise invoices, ever</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · TESTIMONIAL -->
+    <section class="zone-ivory">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 07 · From the Record</span><span class="rule"></span></div>
+          <h2>What engagement actually feels like.</h2>
+        </div>
+        <div class="testi-shell rv rv-up" data-d="2">
+          <div class="testi-viewport">
+            <div class="testi-track">
+              <div class="testi"><span class="quote-mark">"</span><p>The Standing Counsel retainer costs less than the one dispute it prevented in our first quarter. Every contract now goes out reviewed.</p><div class="who"><b>Karthik Hegde</b><span>CEO, Brindavan Logistics</span></div></div>
+              <div class="testi"><span class="quote-mark">"</span><p>Scope note in two days, fee fixed, will registered in three weeks. My father finally stopped postponing it.</p><div class="who"><b>Lakshmi Venkatesh</b><span>Succession client, Malleshwaram</span></div></div>
+              <div class="testi"><span class="quote-mark">"</span><p>They flagged three clauses in our franchise agreement that would have locked us in for seven years. Worth every rupee of the vetting fee.</p><div class="who"><b>Rohan D'Souza</b><span>Founder, Crumb &amp; Co. Bakehouse</span></div></div>
+            </div>
+          </div>
+          <div class="testi-nav">
+            <button data-prev aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+            <button data-next aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+          <div class="testi-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · FAQ -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 08 · Fee Questions</span><span class="rule"></span></div>
+          <h2>Straight answers about money.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq rv rv-up" data-d="1">
+            <button class="faq-q">Are the "from" prices the final fee?<span class="fx">+</span></button>
+            <div class="faq-a"><p>They are honest starting points for a standard matter of that type. Your engagement letter states the exact fixed fee for your facts — and that figure does not move unless you expand the scope in writing.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="2">
+            <button class="faq-q">What payment modes do you accept?<span class="fx">+</span></button>
+            <div class="faq-a"><p>UPI, NEFT/IMPS bank transfer, and cheques in the firm's name. Every payment is receipted with GST invoice; retainers are billed quarterly in advance.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="3">
+            <button class="faq-q">Can I pause or exit a retainer?<span class="fx">+</span></button>
+            <div class="faq-a"><p>Yes — retainers run quarter to quarter with 30 days' written notice to exit. Any matter already in progress is completed at the retainer rate regardless.</p></div>
+          </div>
+          <div class="faq rv rv-up" data-d="4">
+            <button class="faq-q">Do court fees and stamp duty come out of your fee?<span class="fx">+</span></button>
+            <div class="faq-a"><p>No — those are statutory payments to the government, itemised separately with receipts. Our scope note estimates them upfront so the total cost of the matter is visible on day one.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CTA -->
+    <section class="zone-ivory">
+      <div class="wrap">
+        <div class="cta-banner rv rv-zoom">
+          <div class="docket on-dark center"><span class="rule"></span><span class="code">§ 09 · Get a Scope Note</span><span class="rule"></span></div>
+          <h2>Send us your matter. Get a fixed number back.</h2>
+          <p class="lead">Three working days to a written scope and fee — no obligation to proceed.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="contact.html">Request a Scope Note
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="team.html">Meet the Desks</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="f-brand">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" loading="lazy" width="130" height="52">
+        </span>
+        <p>Stackly Legal Consultancy Services — plain-language counsel for businesses and families across Karnataka since 2008.</p>
+      </div>
+      <div class="f-col">
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Advocates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="services.html">Corporate &amp; Commercial</a></li>
+          <li><a href="services.html">Property &amp; Title</a></li>
+          <li><a href="services.html">Civil Litigation</a></li>
+          <li><a href="services.html">Startup Compliance</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Chambers</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span>3rd Floor, Meridian Chambers,<br>Richmond Road, Bengaluru 560025</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.6 3a2 2 0 0 1-.6 1.9L7.9 9.8a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 1.9-.6l3 .6a2 2 0 0 1 1.7 2z"/></svg><span>+91 80 4712 5890</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><span>counsel@stacklylegal.in</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap">
+        <span>© 2026 Stackly Legal Consultancy · SNAB Solutions</span>
+        <span>Mon–Sat · 10:00–19:00 IST</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

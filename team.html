@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advocates — Stackly Legal Consultancy | Bengaluru</title>
+  <meta name="description" content="Meet the fourteen advocates of Stackly Legal Consultancy Services — partners, associates and the desks they lead in Bengaluru.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* page-specific: credential bar + person tags */
+    .cred-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+    .cred{
+      border:1px solid rgba(194,154,69,.3); border-radius:var(--r-md);
+      padding:26px 24px; background:var(--ink-3);
+      transition:transform .45s var(--ease), border-color .45s;
+    }
+    .cred:hover{ transform:translateY(-6px); border-color:var(--bronze); }
+    .cred b{ font-family:var(--font-display); font-size:1.15rem; color:#EAF0F7; display:block; margin-bottom:6px; font-weight:560; }
+    .cred span{ font-size:.85rem; color:#93A6BB; }
+    .person .tags{ display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+    .person .tags i{
+      font-style:normal; font-family:var(--font-mono); font-size:.6rem;
+      letter-spacing:.14em; text-transform:uppercase;
+      background:var(--bronze-soft); color:var(--bronze);
+      padding:5px 10px; border-radius:30px;
+      transition:background .3s, color .3s;
+    }
+    .person:hover .tags i{ background:var(--bronze); color:var(--white); }
+    @media (max-width:1024px){ .cred-row{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px){ .cred-row{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Stackly Legal Consultancy home">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" width="130" height="52">
+        </span>
+        <span class="brand-tag">Legal<br>Consultancy</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="team.html" class="active">Advocates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-gold" href="contact.html">Book Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html"><span class="idx">§01</span>Home</a>
+    <a href="services.html"><span class="idx">§02</span>Services</a>
+    <a href="about.html"><span class="idx">§03</span>About</a>
+    <a href="team.html" class="active"><span class="idx">§04</span>Advocates</a>
+    <a href="contact.html"><span class="idx">§05</span>Contact</a>
+    <p class="panel-foot">Stackly Legal · Richmond Road, Bengaluru · +91 80 4712 5890</p>
+  </div>
+
+  <main>
+
+    <!-- 01 · HERO -->
+    <section class="hero short flush">
+      <div class="hero-media">
+        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1521737604893-d14cc237f11d&w=1600&h=900&fit=cover&output=webp&q=55" alt="The Stackly Legal panel in discussion" fetchpriority="high">
+      </div>
+      <div class="wrap">
+        <div class="docket" data-stagger="1"><span class="code">§ 04 · The Panel</span><span class="rule"></span></div>
+        <h1 data-stagger="2">Fourteen advocates. <em class="gild">One signature rule.</em></h1>
+        <p class="lead" data-stagger="3">Whoever signs your opinion argues your matter. Meet the people whose names go on the file.</p>
+        <div class="hero-actions" data-stagger="4">
+          <a class="btn btn-gold" href="#partners">Meet the Partners
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="contact.html">Book a Consultation</a>
+        </div>
+      </div>
+      <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <!-- 02 · MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Karnataka High Court</span><span>City Civil Court</span><span>NCLT Bengaluru</span><span>Consumer Forums</span><span>Sub-Registrar Offices</span><span>Arbitral Tribunals</span><span>Karnataka High Court</span><span>City Civil Court</span><span>NCLT Bengaluru</span><span>Consumer Forums</span><span>Sub-Registrar Offices</span><span>Arbitral Tribunals</span>
+      </div>
+    </div>
+
+    <!-- 03 · INTRO -->
+    <section class="zone-ivory tight">
+      <div class="wrap sec-head center rv rv-up" style="margin-bottom:0;">
+        <div class="docket center"><span class="rule"></span><span class="code">§ 01 · How the Panel Works</span><span class="rule"></span></div>
+        <h2>Small enough to know your file. <em class="gild">Senior enough</em> to argue it anywhere.</h2>
+        <p class="lead">Four partners lead six desks; ten associates draft under their signature. No matter is ever handed to someone you haven't met.</p>
+      </div>
+    </section>
+
+    <!-- 04 · PARTNERS -->
+    <section class="zone-white" id="partners">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 02 · Partners</span><span class="rule"></span></div>
+          <h2>The names on the letterhead.</h2>
+        </div>
+        <div class="grid-4">
+          <article class="person rv rv-tilt" data-d="1">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1560250097-0b93528c311a&w=600&h=680&fit=cover&output=webp&q=58" alt="Adv. Vikram Shetty" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Vikram Shetty</h3><span class="role">Managing Partner · Corporate</span><p>Founder of the firm; 18 years before the Karnataka High Court on commercial matters.</p>
+            <div class="tags"><i>Contracts</i><i>NCLT</i><i>Advisory</i></div></div>
+          </article>
+          <article class="person rv rv-tilt" data-d="2">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1573496359142-b8d87734a5a2&w=600&h=680&fit=cover&output=webp&q=58" alt="Adv. Meera Krishnan" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Meera Krishnan</h3><span class="role">Partner · Property &amp; Title</span><p>1,100+ titles verified across Karnataka; leads registration-day representation.</p>
+            <div class="tags"><i>Title</i><i>RERA</i><i>Khata</i></div></div>
+          </article>
+          <article class="person rv rv-tilt" data-d="3">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1507003211169-0a1dd7228f2d&w=600&h=680&fit=cover&output=webp&q=58" alt="Adv. Arif Pasha" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Arif Pasha</h3><span class="role">Partner · Civil Litigation</span><p>Recovery, injunctions and consumer appeals — drafts and argues every brief himself.</p>
+            <div class="tags"><i>Recovery</i><i>Appeals</i><i>Arbitration</i></div></div>
+          </article>
+          <article class="person rv rv-tilt" data-d="4">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1573497019940-1c28c88b4f3e&w=600&h=680&fit=cover&output=webp&q=58" alt="Adv. Priya Deshmukh" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Priya Deshmukh</h3><span class="role">Partner · Startup &amp; Family</span><p>Runs the founder desk and the succession practice — the firm's two fastest-growing files.</p>
+            <div class="tags"><i>ESOPs</i><i>Wills</i><i>DPDP</i></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · CREDENTIALS -->
+    <section class="zone-ink tight">
+      <div class="wrap">
+        <div class="docket on-dark rv rv-up"><span class="code">§ 03 · Standing</span><span class="rule"></span></div>
+        <div class="cred-row">
+          <div class="cred rv rv-up" data-d="1"><b>Karnataka State Bar Council</b><span>All fourteen advocates enrolled and in good standing.</span></div>
+          <div class="cred rv rv-up" data-d="2"><b>High Court Empanelment</b><span>Regular appearances before the Karnataka High Court since 2010.</span></div>
+          <div class="cred rv rv-up" data-d="3"><b>Accredited Mediators</b><span>Three partners certified by the Bangalore Mediation Centre.</span></div>
+          <div class="cred rv rv-up" data-d="4"><b>NCLT &amp; Tribunals</b><span>Company matters before NCLT Bengaluru and arbitral tribunals.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · ASSOCIATES -->
+    <section class="zone-ivory">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 04 · Associates</span><span class="rule"></span></div>
+          <h2>The bench behind the bench.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="person rv rv-up" data-d="1">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1556157382-97eda2d62296&w=700&h=760&fit=cover&output=webp&q=58" alt="Adv. Nikhil Menon" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Nikhil Menon</h3><span class="role">Senior Associate · Corporate</span><p>Runs ROC calendars for eighty retainer clients without missing a date.</p></div>
+          </article>
+          <article class="person rv rv-up" data-d="2">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1580489944761-15a19d654956&w=700&h=760&fit=cover&output=webp&q=58" alt="Adv. Ananya Iyer" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Ananya Iyer</h3><span class="role">Senior Associate · Property</span><p>Thirty-year title searches, EC scrutiny and the firm's fastest deed drafts.</p></div>
+          </article>
+          <article class="person rv rv-up" data-d="3">
+            <div class="ph"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1519085360753-af0119f7cbe7&w=700&h=760&fit=cover&output=webp&q=58" alt="Adv. Sandeep Reddy" loading="lazy"></div>
+            <div class="pb"><h3>Adv. Sandeep Reddy</h3><span class="role">Associate · Litigation</span><p>Pleadings, interim applications and the war-room board before every hearing.</p></div>
+          </article>
+        </div>
+        <p class="lead rv rv-up" data-d="4" style="margin-top:34px;">…plus seven more associates and clerks across the six desks, all working under a partner's signature.</p>
+      </div>
+    </section>
+
+    <!-- 07 · EXPERTISE MAP -->
+    <section class="zone-white tight">
+      <div class="wrap">
+        <div class="sec-head rv rv-up">
+          <div class="docket"><span class="code">§ 05 · Who Handles What</span><span class="rule"></span></div>
+          <h2>Match your matter to a desk lead.</h2>
+        </div>
+        <div class="pill-row rv rv-up" data-d="2">
+          <span class="pill">Contracts → Shetty</span><span class="pill">Title Reports → Krishnan</span><span class="pill">Recovery Suits → Pasha</span><span class="pill">Founder Agreements → Deshmukh</span><span class="pill">RERA → Krishnan</span><span class="pill">Wills &amp; Succession → Deshmukh</span><span class="pill">Consumer Forums → Pasha</span><span class="pill">ROC Compliance → Menon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · CULTURE SPLIT -->
+    <section class="zone-ivory">
+      <div class="wrap split">
+        <div class="split-media rv rv-left">
+          <div class="frame">
+            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1568992687947-868a62a9f521&w=900&h=1040&fit=cover&output=webp&q=58" alt="Monday morning case briefing" loading="lazy">
+          </div>
+          <div class="badge rv rv-zoom" data-d="3">
+            <b>08:30</b>
+            <span>Monday war-room</span>
+          </div>
+        </div>
+        <div class="split-copy rv rv-right">
+          <div class="docket"><span class="code">§ 06 · Inside the Week</span><span class="rule"></span></div>
+          <h2>Every Monday, every open file <em class="gild">gets read aloud.</em></h2>
+          <p class="lead" style="margin-top:14px;">The war-room briefing is where the plain-language rule gets enforced: if an associate can't explain a matter's status in two sentences, the file isn't ready. It's also why your fortnightly status notes never slip.</p>
+          <ul class="ticks">
+            <li>Monday war-room: every open matter reviewed</li>
+            <li>Wednesday clinic: pro bono hours at legal aid centres</li>
+            <li>Friday moot: juniors argue next week's matters in-house</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · STATS -->
+    <section class="zone-ink stats-band tight">
+      <div class="wrap">
+        <div class="grid-4">
+          <div class="stat rv rv-up" data-d="1"><b><span data-count="4">0</span></b><span>Partners</span></div>
+          <div class="stat rv rv-up" data-d="2"><b><span data-count="10">0</span></b><span>Associates &amp; clerks</span></div>
+          <div class="stat rv rv-up" data-d="3"><b><span data-count="200" data-suffix="+">0</span></b><span>Pro bono hours yearly</span></div>
+          <div class="stat rv rv-up" data-d="4"><b><span data-count="3">0</span></b><span>Certified mediators</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · TESTIMONIAL -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="sec-head center rv rv-up">
+          <div class="docket center"><span class="rule"></span><span class="code">§ 07 · On the Advocates</span><span class="rule"></span></div>
+          <h2>What clients say about the people.</h2>
+        </div>
+        <div class="testi-shell rv rv-up" data-d="2">
+          <div class="testi-viewport">
+            <div class="testi-track">
+              <div class="testi"><span class="quote-mark">"</span><p>Adv. Krishnan sat with us at the sub-registrar's office for four hours until the deed was registered correctly. That's not a service you can bill for — it's character.</p><div class="who"><b>Prakash &amp; Shalini Rao</b><span>Homebuyers, HSR Layout</span></div></div>
+              <div class="testi"><span class="quote-mark">"</span><p>Adv. Pasha argued our appeal exactly as he'd walked us through it the week before. No surprises in court — that was the whole point.</p><div class="who"><b>Mohammed Irfan</b><span>Proprietor, Irfan Textiles</span></div></div>
+              <div class="testi"><span class="quote-mark">"</span><p>Priya ma'am rewrote our founder agreement three times until both co-founders actually understood every clause. Then she made us initial each page.</p><div class="who"><b>Tejas &amp; Ankita</b><span>Co-founders, Zynk Labs</span></div></div>
+            </div>
+          </div>
+          <div class="testi-nav">
+            <button data-prev aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+            <button data-next aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+          <div class="testi-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · JOIN -->
+    <section class="zone-ivory tight">
+      <div class="wrap split rev">
+        <div class="split-copy rv rv-right">
+          <div class="docket"><span class="code">§ 08 · Careers</span><span class="rule"></span></div>
+          <h2>Read law? <em class="gild">Write plainly?</em> Talk to us.</h2>
+          <p class="lead" style="margin-top:14px;">We take two junior associates and four interns each year. The interview is simple: we hand you a judgment and ask you to explain it to a shopkeeper.</p>
+          <div class="hero-actions" style="margin-top:28px;">
+            <a class="btn btn-ink" href="mailto:careers@stacklylegal.in">careers@stacklylegal.in
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="split-media rv rv-left">
+          <div class="frame">
+            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1522202176988-66273c2fd55f&w=900&h=640&fit=cover&output=webp&q=58" alt="Junior associates studying case files together" loading="lazy" style="aspect-ratio:16/11;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CTA -->
+    <section class="zone-white">
+      <div class="wrap">
+        <div class="cta-banner rv rv-zoom">
+          <div class="docket on-dark center"><span class="rule"></span><span class="code">§ 09 · Meet Your Advocate</span><span class="rule"></span></div>
+          <h2>Book a chair across from the right desk.</h2>
+          <p class="lead">Tell us the matter — we'll pair you with the partner who handles it every week.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="contact.html">Book Consultation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="services.html">See the Desks</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="f-brand">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions" loading="lazy" width="130" height="52">
+        </span>
+        <p>Stackly Legal Consultancy Services — plain-language counsel for businesses and families across Karnataka since 2008.</p>
+      </div>
+      <div class="f-col">
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Advocates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="services.html">Corporate &amp; Commercial</a></li>
+          <li><a href="services.html">Property &amp; Title</a></li>
+          <li><a href="services.html">Civil Litigation</a></li>
+          <li><a href="services.html">Startup Compliance</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Chambers</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span>3rd Floor, Meridian Chambers,<br>Richmond Road, Bengaluru 560025</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.6 3a2 2 0 0 1-.6 1.9L7.9 9.8a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 1.9-.6l3 .6a2 2 0 0 1 1.7 2z"/></svg><span>+91 80 4712 5890</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><span>counsel@stacklylegal.in</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap">
+        <span>© 2026 Stackly Legal Consultancy · SNAB Solutions</span>
+        <span>Mon–Sat · 10:00–19:00 IST</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
