@@ -4,6 +4,14 @@
 (function () {
   "use strict";
 
+  /* breadcrumb for the 404 page's Go-back button — every normal page
+     records itself; the 404 (has .nf-stage) never overwrites it */
+  try {
+    if (!document.querySelector(".nf-stage")) {
+      sessionStorage.setItem("stacklyLastPage", window.location.href);
+    }
+  } catch (e) { /* storage unavailable — 404 falls back to home */ }
+
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".nav-toggle");
   var panel = document.querySelector(".mobile-panel");

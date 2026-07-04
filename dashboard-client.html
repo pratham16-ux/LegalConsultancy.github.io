@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard — Stackly Legal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="dash-side" id="dashSide">
+      <div class="side-brand">
+        <span class="logo-chip">
+          <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions">
+        </span>
+        <span class="side-role">Client<br>Portal</span>
+      </div>
+
+      <nav class="side-nav">
+        <span class="nav-sep">§ Workspace</span>
+        <button class="on" data-panel="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h7v7H4zM13 4h7v4h-7zM13 11h7v9h-7zM4 14h7v6H4z"/></svg>
+          Overview
+        </button>
+        <button data-panel="matters">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h6l2 2h8v11H4zM4 6V5a1 1 0 0 1 1-1h4l2 2"/></svg>
+          My Matters
+        </button>
+        <button data-panel="documents">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/></svg>
+          Documents
+        </button>
+        <button data-panel="payments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+          Payments
+        </button>
+        <button data-panel="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>
+          Appointments
+        </button>
+        <span class="nav-sep">§ Account</span>
+        <button data-panel="profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
+          Profile
+        </button>
+      </nav>
+
+      <div class="side-foot">
+        <button class="logout" id="logoutBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="side-veil" id="sideVeil"></div>
+
+    <!-- ================= MAIN ================= -->
+    <div class="dash-main">
+
+      <header class="dash-top">
+        <button class="icon-btn side-toggle" id="sideToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+
+        <div class="page-title">
+          <span class="crumb">Client Portal · § <span id="crumbCode">01</span></span>
+          <h1 id="pageTitle">Overview</h1>
+        </div>
+
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M18 9a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7M10.5 20a1.8 1.8 0 0 0 3 0"/></svg>
+            <span class="dot" id="notifDot"></span>
+          </button>
+          <div class="notif-panel" id="notifPanel">
+            <header><b>Notifications</b><button id="markRead">Mark all read</button></header>
+            <ul id="notifList">
+              <li class="unread"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span><div>Hearing confirmed for SL/CIVIL-118 on 14 Jul<span>Today · 9:40 AM</span></div></li>
+              <li class="unread"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span><div>Title report uploaded by Adv. Meera Krishnan<span>Yesterday · 4:12 PM</span></div></li>
+              <li><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span><div>Invoice INV-2231 paid — receipt available<span>28 Jun · 11:05 AM</span></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="who-chip" title="Signed-in account">
+          <span class="avatar" id="whoAvatar">C</span>
+          <span class="who-meta">
+            <b>Client Account</b>
+            <span id="whoEmail">—</span>
+          </span>
+        </div>
+      </header>
+
+      <main class="dash-body">
+
+        <!-- ============ OVERVIEW ============ -->
+        <section class="panel on" id="panel-overview">
+          <div class="hello">
+            <div>
+              <span class="h-code">§ Signed in as <span id="helloEmail">—</span></span>
+              <h2>Good to see you back.</h2>
+              <p>You have <b>2 active matters</b>, <b>1 pending invoice</b> and a hearing on <b>14 July</b>.</p>
+            </div>
+            <button class="btn btn-gold" data-go="appointments">Book Appointment
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi"><span class="k-label">Active Matters</span><b>2</b><span class="k-note">1 hearing scheduled</span></div>
+            <div class="kpi"><span class="k-label">Documents</span><b>14</b><span class="k-note">1 new this week</span></div>
+            <div class="kpi"><span class="k-label">Amount Due</span><b>₹22,500</b><span class="k-note">INV-2244 · due 10 Jul</span></div>
+            <div class="kpi"><span class="k-label">Next Hearing</span><b>14 Jul</b><span class="k-note">City Civil Court, Hall 8</span></div>
+          </div>
+
+          <div class="dcard">
+            <h2>Quick actions</h2>
+            <p class="sub">Jump straight to the thing you came for.</p>
+            <div class="quick-row">
+              <button class="quick" data-go="matters"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 6h6l2 2h8v11H4z"/></svg></span>Track my matters</button>
+              <button class="quick" data-go="documents"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>Download documents</button>
+              <button class="quick" data-go="payments"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span>Pay an invoice</button>
+              <button class="quick" data-go="profile"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>Update my profile</button>
+            </div>
+          </div>
+
+          <div class="dgrid-2">
+            <div class="dcard">
+              <h2>Matter progress</h2>
+              <p class="sub">Where each open file stands right now.</p>
+              <div class="row-list">
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 10.5 12 3l9 7.5M5 9v12h14V9"/></svg></span>
+                  <div class="r-body"><b>SL/PROP-204 · Sarjapur flat title</b><span>Report drafting · 70% complete</span>
+                    <div class="bar" style="margin-top:8px;"><i data-w="70%"></i></div>
+                  </div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v18M6 7l-3 6a4 4 0 0 0 6 0l-3-6zM18 7l-3 6a4 4 0 0 0 6 0l-3-6zM6 7h12"/></svg></span>
+                  <div class="r-body"><b>SL/CIVIL-118 · Recovery suit</b><span>Evidence stage · 45% complete</span>
+                    <div class="bar" style="margin-top:8px;"><i data-w="45%"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dcard">
+              <h2>Upcoming</h2>
+              <p class="sub">Dates the desk is holding for you.</p>
+              <div class="row-list">
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>Hearing · SL/CIVIL-118</b><span>14 Jul · 11:00 AM · City Civil Court</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></span>
+                  <div class="r-body"><b>Review call · Adv. Meera</b><span>08 Jul · 5:30 PM · Google Meet</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MATTERS ============ -->
+        <section class="panel" id="panel-matters">
+          <div class="dcard">
+            <h2>My matters</h2>
+            <p class="sub">Every file the firm holds in your name.</p>
+            <div class="chip-row" id="matterFilters">
+              <button class="chip on" data-filter="all">All</button>
+              <button class="chip" data-filter="active">Active</button>
+              <button class="chip" data-filter="pending">Pending</button>
+              <button class="chip" data-filter="closed">Closed</button>
+            </div>
+            <div class="table-scroll">
+              <table class="dtable" id="matterTable">
+                <thead><tr><th>Matter</th><th>Desk</th><th>Lead Advocate</th><th>Status</th><th></th></tr></thead>
+                <tbody>
+                  <tr data-status="active">
+                    <td><span class="t-title">SL/PROP-204</span><span class="t-sub">Sarjapur flat title verification</span></td>
+                    <td>Property</td><td>Adv. Meera Krishnan</td>
+                    <td><span class="status active">Active</span></td>
+                    <td><button class="mini-btn" data-view="SL/PROP-204|Sarjapur flat title verification|Property & Title|Adv. Meera Krishnan|Active · report drafting|Opened 02 May 2026|₹18,000 (fixed, paid)">View</button></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><span class="t-title">SL/CIVIL-118</span><span class="t-sub">Money recovery suit vs Nexon Traders</span></td>
+                    <td>Civil</td><td>Adv. Arif Pasha</td>
+                    <td><span class="status active">Active</span></td>
+                    <td><button class="mini-btn" data-view="SL/CIVIL-118|Recovery suit vs Nexon Traders|Civil Litigation|Adv. Arif Pasha|Active · evidence stage|Opened 19 Jan 2026|₹45,000 (fixed) + court fees">View</button></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><span class="t-title">SL/DRAFT-771</span><span class="t-sub">Lease agreement · Indiranagar shop</span></td>
+                    <td>Drafting</td><td>Adv. Vikram Shetty</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><button class="mini-btn" data-view="SL/DRAFT-771|Lease agreement — Indiranagar shop|Contracts & Drafting|Adv. Vikram Shetty|Pending · awaiting your landlord's PAN|Opened 22 Jun 2026|₹8,000 (fixed)">View</button></td>
+                  </tr>
+                  <tr data-status="closed">
+                    <td><span class="t-title">SL/FAM-090</span><span class="t-sub">Registered will · Malleshwaram</span></td>
+                    <td>Family</td><td>Adv. Meera Krishnan</td>
+                    <td><span class="status closed">Closed</span></td>
+                    <td><button class="mini-btn" data-view="SL/FAM-090|Registered will — Malleshwaram|Family & Succession|Adv. Meera Krishnan|Closed · will registered 12 Mar 2026|Opened 03 Feb 2026|₹15,000 (fixed, settled)">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DOCUMENTS ============ -->
+        <section class="panel" id="panel-documents">
+          <div class="dcard">
+            <h2>Documents</h2>
+            <p class="sub">Everything the desk has filed or shared with you.</p>
+            <div class="row-list" id="docList">
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>Title Search Report — SL/PROP-204.pdf</b><span>2.1 MB · uploaded 30 Jun by Adv. Meera</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="Title Search Report">Download</button></div>
+              </div>
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>Plaint — SL/CIVIL-118.pdf</b><span>860 KB · filed 02 Feb</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="Plaint">Download</button></div>
+              </div>
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>Engagement Letter — signed.pdf</b><span>310 KB · 19 Jan</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="Engagement Letter">Download</button></div>
+              </div>
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>Registered Will — SL/FAM-090.pdf</b><span>1.4 MB · 12 Mar</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="Registered Will">Download</button></div>
+              </div>
+            </div>
+            <div class="dform actions" style="margin-top:20px;">
+              <button class="mini-btn solid" id="uploadBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+                Upload a document
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PAYMENTS ============ -->
+        <section class="panel" id="panel-payments">
+          <div class="dcard">
+            <h2>Invoices &amp; payments</h2>
+            <p class="sub">Fixed fees, itemised. Pay pending invoices by UPI.</p>
+            <div class="table-scroll">
+              <table class="dtable">
+                <thead><tr><th>Invoice</th><th>Matter</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+                <tbody id="invoiceRows">
+                  <tr>
+                    <td><span class="t-title">INV-2244</span><span class="t-sub">Due 10 Jul 2026</span></td>
+                    <td>SL/CIVIL-118</td><td><b>₹22,500</b></td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><button class="mini-btn solid" data-pay="INV-2244|₹22,500">Pay via UPI</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="t-title">INV-2231</span><span class="t-sub">Paid 28 Jun 2026</span></td>
+                    <td>SL/PROP-204</td><td><b>₹18,000</b></td>
+                    <td><span class="status active">Paid</span></td>
+                    <td><button class="mini-btn" data-download="Receipt INV-2231">Receipt</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="t-title">INV-2187</span><span class="t-sub">Paid 05 Mar 2026</span></td>
+                    <td>SL/FAM-090</td><td><b>₹15,000</b></td>
+                    <td><span class="status active">Paid</span></td>
+                    <td><button class="mini-btn" data-download="Receipt INV-2187">Receipt</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ APPOINTMENTS ============ -->
+        <section class="panel" id="panel-appointments">
+          <div class="dgrid-2eq">
+            <div class="dcard">
+              <h2>Book an appointment</h2>
+              <p class="sub">45-minute sessions, in chambers or on a call.</p>
+              <form class="dform" id="apptForm" novalidate>
+                <div class="frow">
+                  <div class="field">
+                    <label for="apptDesk">Desk</label>
+                    <select id="apptDesk">
+                      <option>Property &amp; Title</option><option>Civil Litigation</option>
+                      <option>Corporate</option><option>Startup</option>
+                      <option>Family</option><option>Drafting</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="apptMode">Mode</label>
+                    <select id="apptMode"><option>In chambers</option><option>Video call</option><option>Phone call</option></select>
+                  </div>
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="apptDate">Date</label>
+                    <input type="date" id="apptDate" data-req>
+                    <span class="err-msg">Pick a date.</span>
+                  </div>
+                  <div class="field">
+                    <label for="apptTime">Time</label>
+                    <select id="apptTime"><option>10:30 AM</option><option>12:00 PM</option><option>3:00 PM</option><option>5:30 PM</option></select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="apptNote">What should we prepare for?</label>
+                  <textarea id="apptNote" placeholder="One or two lines about the matter" style="min-height:90px;"></textarea>
+                </div>
+                <div class="actions">
+                  <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Confirm Booking</button>
+                </div>
+              </form>
+            </div>
+            <div class="dcard">
+              <h2>Your appointments</h2>
+              <p class="sub">Confirmed sessions with the desks.</p>
+              <div class="row-list" id="apptList">
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>Review call · Property desk</b><span>08 Jul · 5:30 PM · Video call</span></div>
+                  <div class="r-end"><span class="status active">Confirmed</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PROFILE ============ -->
+        <section class="panel" id="panel-profile">
+          <div class="dcard" style="max-width:640px;">
+            <h2>Profile</h2>
+            <p class="sub">Signed in as <b id="profileEmailInline">—</b></p>
+            <form class="dform" id="profileForm" novalidate>
+              <div class="frow">
+                <div class="field">
+                  <label for="pfName">Full name</label>
+                  <input type="text" id="pfName" maxlength="16" placeholder="Letters only, max 16" data-req>
+                  <span class="err-msg">Letters only, up to 16 characters.</span>
+                </div>
+                <div class="field">
+                  <label for="pfPhone">Phone</label>
+                  <input type="tel" id="pfPhone" maxlength="10" inputmode="numeric" placeholder="10-digit mobile" data-req>
+                  <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="pfEmail">Email (sign-in ID)</label>
+                <input type="email" id="pfEmail" readonly style="background:#F0EBDF; cursor:not-allowed;">
+              </div>
+              <div class="field">
+                <label for="pfCity">City</label>
+                <input type="text" id="pfCity" placeholder="Bengaluru">
+              </div>
+              <div class="form-ok" id="profileOk">Profile saved. Your desk has the updated details.</div>
+              <div class="actions">
+                <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Save Changes</button>
+                <button type="button" class="btn btn-ghost" id="profileCancel" style="padding:13px 26px;">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ============ MODALS ============ -->
+  <div class="modal-veil" id="matterModal">
+    <div class="modal">
+      <button class="m-close" data-close aria-label="Close">×</button>
+      <h3 id="mmTitle">Matter</h3>
+      <p class="m-sub" id="mmSub">—</p>
+      <div class="m-detail">
+        <div><span>Desk</span><b id="mmDesk">—</b></div>
+        <div><span>Lead advocate</span><b id="mmLead">—</b></div>
+        <div><span>Status</span><b id="mmStatus">—</b></div>
+        <div><span>Opened</span><b id="mmOpened">—</b></div>
+        <div><span>Fee</span><b id="mmFee">—</b></div>
+      </div>
+      <div class="dform actions" style="margin-top:20px;">
+        <button class="mini-btn solid" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-veil" id="payModal">
+    <div class="modal">
+      <button class="m-close" data-close aria-label="Close">×</button>
+      <h3>Pay <span id="payInv">invoice</span></h3>
+      <p class="m-sub">Amount due: <b id="payAmt">—</b> · UPI to <b>stacklylegal@okaxis</b></p>
+      <div class="field">
+        <label for="payUpi">Your UPI ID</label>
+        <input type="text" id="payUpi" placeholder="name@bank">
+        <span class="err-msg">Enter a valid UPI ID (name@bank).</span>
+      </div>
+      <div class="dform actions">
+        <button class="mini-btn solid" id="payConfirm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+          Confirm Payment
+        </button>
+        <button class="mini-btn" data-close>Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-dock" id="toastDock"></div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    /* ---------- client-dashboard specifics ---------- */
+    (function () {
+      "use strict";
+      var user = window.StacklyDash.guard("client");   // redirects if not signed in as client
+      if (!user) return;
+
+      window.StacklyDash.showEmail(user, ["whoEmail", "helloEmail", "profileEmailInline"]);
+      document.getElementById("pfEmail").value = user.email;
+      document.getElementById("whoAvatar").textContent = user.email.charAt(0).toUpperCase();
+
+      /* matter filters */
+      var filterWrap = document.getElementById("matterFilters");
+      filterWrap.addEventListener("click", function (e) {
+        var chip = e.target.closest(".chip");
+        if (!chip) return;
+        filterWrap.querySelectorAll(".chip").forEach(function (c) { c.classList.toggle("on", c === chip); });
+        var f = chip.dataset.filter;
+        document.querySelectorAll("#matterTable tbody tr").forEach(function (tr) {
+          tr.style.display = (f === "all" || tr.dataset.status === f) ? "" : "none";
+        });
+      });
+
+      /* matter detail modal */
+      var mm = document.getElementById("matterModal");
+      document.querySelectorAll("[data-view]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var p = btn.dataset.view.split("|");
+          document.getElementById("mmTitle").textContent = p[0];
+          document.getElementById("mmSub").textContent = p[1];
+          document.getElementById("mmDesk").textContent = p[2];
+          document.getElementById("mmLead").textContent = p[3];
+          document.getElementById("mmStatus").textContent = p[4];
+          document.getElementById("mmOpened").textContent = p[5];
+          document.getElementById("mmFee").textContent = p[6];
+          window.StacklyDash.openModal(mm);
+        });
+      });
+
+      /* downloads */
+      document.addEventListener("click", function (e) {
+        var d = e.target.closest("[data-download]");
+        if (d) window.StacklyDash.toast("Download started — " + d.dataset.download);
+      });
+
+      /* upload (demo) */
+      document.getElementById("uploadBtn").addEventListener("click", function () {
+        var list = document.getElementById("docList");
+        var item = document.createElement("div");
+        item.className = "row-item";
+        item.style.animation = "panelIn .5s var(--ease)";
+        item.innerHTML =
+          '<span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>' +
+          '<div class="r-body"><b>My Upload — ' + new Date().toLocaleDateString("en-IN") + '.pdf</b><span>Uploaded just now by you</span></div>' +
+          '<div class="r-end"><button class="mini-btn" data-download="My Upload">Download</button></div>';
+        list.prepend(item);
+        window.StacklyDash.toast("Document uploaded and shared with your desk");
+      });
+
+      /* payments */
+      var payModal = document.getElementById("payModal");
+      var currentPayBtn = null;
+      document.querySelectorAll("[data-pay]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var p = btn.dataset.pay.split("|");
+          document.getElementById("payInv").textContent = p[0];
+          document.getElementById("payAmt").textContent = p[1];
+          currentPayBtn = btn;
+          window.StacklyDash.openModal(payModal);
+        });
+      });
+      document.getElementById("payConfirm").addEventListener("click", function () {
+        var upi = document.getElementById("payUpi");
+        var ok = /^[\w.\-]{2,}@[a-z]{2,}$/i.test(upi.value.trim());
+        upi.closest(".field").classList.toggle("invalid", !ok);
+        if (!ok) return;
+        window.StacklyDash.closeModal(payModal);
+        if (currentPayBtn) {
+          var row = currentPayBtn.closest("tr");
+          row.querySelector(".status").className = "status active";
+          row.querySelector(".status").textContent = "Paid";
+          currentPayBtn.outerHTML = '<button class="mini-btn" data-download="Receipt">Receipt</button>';
+        }
+        upi.value = "";
+        window.StacklyDash.toast("Payment received — receipt is in Documents");
+      });
+
+      /* appointment booking */
+      document.getElementById("apptForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var date = document.getElementById("apptDate");
+        var good = !!date.value;
+        date.closest(".field").classList.toggle("invalid", !good);
+        if (!good) return;
+
+        var d = new Date(date.value).toLocaleDateString("en-IN", { day: "2-digit", month: "short" });
+        var item = document.createElement("div");
+        item.className = "row-item";
+        item.style.animation = "panelIn .5s var(--ease)";
+        item.innerHTML =
+          '<span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>' +
+          '<div class="r-body"><b>' + document.getElementById("apptDesk").value + ' desk</b><span>' +
+          d + " · " + document.getElementById("apptTime").value + " · " + document.getElementById("apptMode").value +
+          '</span></div><div class="r-end"><span class="status pending">Requested</span></div>';
+        document.getElementById("apptList").prepend(item);
+        e.target.reset();
+        window.StacklyDash.toast("Appointment requested — the desk will confirm on WhatsApp");
+      });
+
+      /* profile save / cancel — Stackly validation suite */
+      var saved = { name: "", phone: "", city: "Bengaluru" };
+      var pfName = document.getElementById("pfName");
+      var pfPhone = document.getElementById("pfPhone");
+      var pfCity = document.getElementById("pfCity");
+      pfCity.value = saved.city;
+
+      document.getElementById("profileForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var nameOk = /^[A-Za-z ]{2,16}$/.test(pfName.value.trim());
+        var phoneOk = /^[6-9]\d{9}$/.test(pfPhone.value.trim());
+        pfName.closest(".field").classList.toggle("invalid", !nameOk);
+        pfPhone.closest(".field").classList.toggle("invalid", !phoneOk);
+        if (!nameOk || !phoneOk) return;
+
+        saved = { name: pfName.value.trim(), phone: pfPhone.value.trim(), city: pfCity.value.trim() };
+        document.getElementById("profileOk").classList.add("show");
+        setTimeout(function () { document.getElementById("profileOk").classList.remove("show"); }, 5000);
+        window.StacklyDash.toast("Profile saved");
+      });
+      document.getElementById("profileCancel").addEventListener("click", function () {
+        pfName.value = saved.name; pfPhone.value = saved.phone; pfCity.value = saved.city;
+        document.querySelectorAll("#profileForm .field").forEach(function (f) { f.classList.remove("invalid"); });
+        window.StacklyDash.toast("Changes discarded");
+      });
+    })();
+  </script>
+</body>
+</html>

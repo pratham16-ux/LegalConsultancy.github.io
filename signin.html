@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Stackly Legal Consultancy</title>
+  <meta name="description" content="Sign in to the Stackly Legal client or advocate portal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body{ overflow-x:hidden; }
+    .auth-shell{ display:grid; grid-template-columns:1.05fr 1fr; min-height:100vh; }
+
+    /* ---------- left visual panel ---------- */
+    .auth-visual{
+      position:relative; isolation:isolate; overflow:hidden;
+      display:flex; flex-direction:column; justify-content:space-between;
+      padding:clamp(28px,4vw,52px); color:#fff;
+    }
+    .auth-visual img.bg{
+      position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover;
+      animation:kenburns 20s var(--ease) both;
+    }
+    .auth-visual::before{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(200deg, rgba(12,26,43,.55), rgba(12,26,43,.9));
+    }
+    .auth-visual .logo-chip{
+      background:transparent; padding:0;
+      display:inline-flex; width:max-content;
+      animation:fadeSlide .8s var(--ease) both;
+    }
+    .auth-visual .logo-chip img{ height:40px; width:auto; filter:var(--logo-tint); }
+    .auth-quote{ max-width:44ch; animation:fadeSlide .9s var(--ease) .25s both; }
+    .auth-quote .q-mark{
+      font-family:var(--font-display); font-size:4rem; line-height:.5;
+      color:var(--bronze-2); display:block; margin-bottom:18px;
+    }
+    .auth-quote p{
+      font-family:var(--font-display); font-weight:480;
+      font-size:clamp(1.3rem,2.2vw,1.7rem); line-height:1.5;
+    }
+    .auth-quote .q-who{
+      margin-top:18px; font-family:var(--font-mono); font-size:.66rem;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--bronze-2);
+    }
+    .auth-visual .v-foot{
+      font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em;
+      text-transform:uppercase; color:#93A6BB;
+      animation:fadeSlide 1s var(--ease) .4s both;
+    }
+    @keyframes fadeSlide{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:none; } }
+
+    /* ---------- right form panel ---------- */
+    .auth-pane{
+      display:flex; align-items:center; justify-content:center;
+      padding:clamp(28px,5vw,60px) clamp(20px,4vw,60px);
+      background:
+        radial-gradient(600px 400px at 110% -10%, rgba(169,129,47,.10), transparent 60%),
+        var(--paper);
+    }
+    .auth-card{ width:min(440px,100%); animation:fadeSlide .8s var(--ease) .15s both; }
+    .auth-card .docket{ margin-bottom:14px; }
+    .auth-card h1{ font-size:clamp(1.9rem,3.4vw,2.5rem); margin-bottom:8px; }
+    .auth-card .lead{ font-size:.95rem; margin-bottom:28px; }
+
+    /* role segmented control — the two options */
+    .role-switch{
+      position:relative; display:grid; grid-template-columns:1fr 1fr;
+      background:var(--white); border:1.5px solid var(--line);
+      border-radius:16px; padding:6px; margin-bottom:26px;
+    }
+    .role-switch .slider{
+      position:absolute; top:6px; bottom:6px; left:6px;
+      width:calc(50% - 6px); border-radius:11px;
+      background:var(--ink);
+      transition:transform .45s var(--ease);
+      z-index:0;
+    }
+    .role-switch[data-role="advocate"] .slider{ transform:translateX(100%); }
+    .role-switch button{
+      position:relative; z-index:1; background:none; border:0;
+      padding:14px 10px; border-radius:11px;
+      display:flex; flex-direction:column; align-items:center; gap:4px;
+      color:var(--muted); transition:color .35s;
+    }
+    .role-switch button b{ font-size:.88rem; }
+    .role-switch button span{
+      font-family:var(--font-mono); font-size:.56rem; letter-spacing:.18em; text-transform:uppercase;
+    }
+    .role-switch button svg{ width:20px; height:20px; margin-bottom:2px; }
+    .role-switch button.on{ color:var(--bronze-2); }
+
+    .pw-wrap{ position:relative; }
+    .pw-wrap input{ padding-right:52px; }
+    .pw-eye{
+      position:absolute; right:8px; top:50%; transform:translateY(-50%);
+      background:none; border:0; color:var(--muted);
+      width:38px; height:38px; display:grid; place-items:center; border-radius:10px;
+      transition:color .3s, background .3s;
+    }
+    .pw-eye:hover{ color:var(--bronze); background:var(--bronze-soft); }
+    .pw-eye svg{ width:18px; height:18px; }
+
+    .auth-meta{
+      display:flex; justify-content:space-between; align-items:center;
+      margin:2px 0 22px; font-size:.8rem;
+    }
+    .auth-meta label{ display:flex; gap:8px; align-items:center; color:var(--muted); cursor:pointer; }
+    .auth-meta input{ accent-color:var(--bronze); width:15px; height:15px; }
+    .auth-meta a{ color:var(--bronze); font-weight:700; }
+    .auth-meta a:hover{ text-decoration:underline; }
+
+    .btn-signin{ width:100%; justify-content:center; padding:16px; font-size:.95rem; }
+    .auth-alt{
+      text-align:center; margin-top:22px; font-size:.84rem; color:var(--muted);
+    }
+    .auth-alt a{ color:var(--bronze); font-weight:700; }
+    .auth-alt a:hover{ text-decoration:underline; }
+    .demo-note{
+      margin-top:22px; background:var(--bronze-soft); border:1px dashed var(--line-gold);
+      border-radius:12px; padding:12px 16px;
+      font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em;
+      color:#7A5E22; line-height:1.7;
+    }
+
+    .shake{ animation:shake .5s var(--ease); }
+    @keyframes shake{
+      10%,90%{ transform:translateX(-2px); } 20%,80%{ transform:translateX(4px); }
+      30%,70%{ transform:translateX(-6px); } 40%,60%{ transform:translateX(6px); } 50%{ transform:translateX(-4px); }
+    }
+
+    /* ---------- redirect overlay ---------- */
+    .go-veil{
+      position:fixed; inset:0; z-index:400;
+      background:linear-gradient(160deg,var(--ink-2),var(--ink-3));
+      display:grid; place-items:center;
+      clip-path:circle(0 at 50% 55%);
+      transition:clip-path .8s var(--ease);
+      color:#EAF0F7; text-align:center;
+    }
+    .go-veil.show{ clip-path:circle(150% at 50% 55%); }
+    .go-veil .seal{
+      width:74px; height:74px; border-radius:50%; margin:0 auto 20px;
+      border:2px solid rgba(194,154,69,.4); border-top-color:var(--bronze-2);
+      display:grid; place-items:center;
+      font-family:var(--font-display); font-size:1.9rem; color:var(--bronze-2);
+      animation:spin 1.4s linear infinite;
+    }
+    .go-veil .seal i{ font-style:normal; animation:spin 1.4s linear infinite reverse; }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+    .go-veil h2{ font-size:1.4rem; }
+    .go-veil p{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; color:#93A6BB; margin-top:8px; }
+
+    .back-home{
+      position:fixed; top:20px; right:20px; z-index:50;
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--white); border:1px solid var(--line); border-radius:40px;
+      padding:10px 18px; font-weight:700; font-size:.8rem; color:var(--ink);
+      transition:all .35s var(--ease);
+    }
+    .back-home:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+    .back-home svg{ width:15px; height:15px; }
+
+    @media (max-width:920px){
+      .auth-shell{ grid-template-columns:1fr; }
+      .auth-visual{ min-height:34vh; padding:22px; }
+      .auth-quote{ display:none; }
+      .auth-visual .v-foot{ display:none; }
+      .auth-visual{ justify-content:flex-start; }
+      .back-home{ top:14px; right:14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Back to site
+  </a>
+
+  <div class="auth-shell">
+
+    <!-- left: brand panel -->
+    <aside class="auth-visual">
+      <img class="bg" src="https://wsrv.nl/?url=images.unsplash.com/photo-1505664194779-8beaceb93744&w=1100&h=1300&fit=cover&output=webp&q=55" alt="">
+      <a class="logo-chip" href="index.html">
+        <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions">
+      </a>
+      <div class="auth-quote">
+        <span class="q-mark">"</span>
+        <p>Every file, hearing date and invoice — one door, two keys. Sign in as a client to follow your matter, or as an advocate to run the desk.</p>
+        <span class="q-who">Stackly Legal · Portal § 2026</span>
+      </div>
+      <span class="v-foot">Meridian Chambers · Richmond Road · Bengaluru 560025</span>
+    </aside>
+
+    <!-- right: form -->
+    <main class="auth-pane">
+      <form class="auth-card" id="signinForm" novalidate>
+        <div class="docket"><span class="code">§ Portal Access</span><span class="rule"></span></div>
+        <h1>Welcome back.</h1>
+        <p class="lead">Choose how you're signing in today.</p>
+
+        <!-- the two options -->
+        <div class="role-switch" id="roleSwitch" data-role="client">
+          <span class="slider"></span>
+          <button type="button" class="on" data-pick="client">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
+            <b>Client</b><span>Track your matter</span>
+          </button>
+          <button type="button" data-pick="advocate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M6 7l-3 6a4 4 0 0 0 6 0l-3-6zM18 7l-3 6a4 4 0 0 0 6 0l-3-6zM6 7h12M8 21h8"/></svg>
+            <b>Advocate</b><span>Run the desk</span>
+          </button>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.in" autocomplete="email" data-req>
+          <span class="err-msg">Enter a valid email address.</span>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="password" name="password" placeholder="Minimum 6 characters" autocomplete="current-password" data-req>
+            <button type="button" class="pw-eye" id="pwEye" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
+            </button>
+          </div>
+          <span class="err-msg">Password must be at least 6 characters.</span>
+        </div>
+
+        <div class="auth-meta">
+          <label><input type="checkbox" id="remember"> Keep me signed in</label>
+          <a href="contact.html">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-signin">
+          Sign In
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+
+        <p class="auth-alt">New to the firm? <a href="contact.html">Book a first consultation</a></p>
+
+        <p class="demo-note">DEMO · Any email + a 6-character password works. Pick Client or Advocate above — the portal routes you to the matching dashboard.</p>
+      </form>
+    </main>
+  </div>
+
+  <!-- redirect overlay -->
+  <div class="go-veil" id="goVeil">
+    <div>
+      <div class="seal"><i>§</i></div>
+      <h2 id="goTitle">Signing you in…</h2>
+      <p id="goSub">Opening your dashboard</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var form = document.getElementById("signinForm");
+      var roleSwitch = document.getElementById("roleSwitch");
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+      var pwEye = document.getElementById("pwEye");
+      var veil = document.getElementById("goVeil");
+      var goTitle = document.getElementById("goTitle");
+      var goSub = document.getElementById("goSub");
+
+      /* role toggle — the two options */
+      roleSwitch.querySelectorAll("[data-pick]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          roleSwitch.setAttribute("data-role", btn.dataset.pick);
+          roleSwitch.querySelectorAll("[data-pick]").forEach(function (b) {
+            b.classList.toggle("on", b === btn);
+          });
+        });
+      });
+
+      /* show / hide password */
+      pwEye.addEventListener("click", function () {
+        var show = password.type === "password";
+        password.type = show ? "text" : "password";
+        pwEye.setAttribute("aria-label", show ? "Hide password" : "Show password");
+        pwEye.style.color = show ? "var(--bronze)" : "";
+      });
+
+      /* clear error state while typing */
+      [email, password].forEach(function (input) {
+        input.addEventListener("input", function () {
+          input.closest(".field").classList.remove("invalid");
+        });
+      });
+
+      /* submit */
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+        var pwOk = password.value.trim().length >= 6;
+
+        email.closest(".field").classList.toggle("invalid", !emailOk);
+        password.closest(".field").classList.toggle("invalid", !pwOk);
+
+        if (!emailOk || !pwOk) {
+          form.classList.remove("shake");
+          void form.offsetWidth;           // restart animation
+          form.classList.add("shake");
+          return;
+        }
+
+        var role = roleSwitch.getAttribute("data-role");
+        var user = {
+          email: email.value.trim().toLowerCase(),
+          role: role,
+          signedInAt: new Date().toISOString()
+        };
+        sessionStorage.setItem("stacklyLegalAuth", JSON.stringify(user));
+
+        /* animated hand-off */
+        goTitle.textContent = role === "advocate" ? "Welcome, Counsel." : "Welcome back.";
+        goSub.textContent = role === "advocate" ? "Opening the advocate desk" : "Opening your client dashboard";
+        veil.classList.add("show");
+
+        setTimeout(function () {
+          window.location.href = role === "advocate"
+            ? "dashboard-advocate.html"
+            : "dashboard-client.html";
+        }, 1100);
+      });
+
+      /* already signed in? skip the form */
+      try {
+        var existing = JSON.parse(sessionStorage.getItem("stacklyLegalAuth") || "null");
+        if (existing && existing.role) {
+          // stay on page but preselect their last role
+          roleSwitch.setAttribute("data-role", existing.role);
+          roleSwitch.querySelectorAll("[data-pick]").forEach(function (b) {
+            b.classList.toggle("on", b.dataset.pick === existing.role);
+          });
+          email.value = existing.email || "";
+        }
+      } catch (err) { /* fresh session */ }
+    })();
+  </script>
+</body>
+</html>

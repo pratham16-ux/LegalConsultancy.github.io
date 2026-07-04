@@ -31,6 +31,10 @@
   --ease: cubic-bezier(.22,.75,.25,1);
   --shadow-1: 0 10px 30px rgba(12,26,43,.08);
   --shadow-2: 0 22px 55px rgba(12,26,43,.16);
+
+  /* recolours the logo image to bronze (#C29A45) */
+  --logo-tint: brightness(0) saturate(100%) invert(58%) sepia(95%)
+               saturate(418%) hue-rotate(0deg) brightness(104%) contrast(52%);
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -158,14 +162,13 @@ section.flush{ padding-block:0; }
 }
 .brand{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
 .brand .logo-chip{
-  background:var(--white); border:1px solid var(--line);
-  border-radius:12px; padding:6px 12px;
-  box-shadow:0 4px 14px rgba(12,26,43,.10);
+  background:transparent; border:none;
+  padding:0;
   display:flex; align-items:center;
-  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  transition:transform .35s var(--ease);
 }
-.brand:hover .logo-chip{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(12,26,43,.15); }
-.brand img{ height:40px; width:auto; }
+.brand:hover .logo-chip{ transform:translateY(-2px); }
+.brand img{ height:55px; width:auto; filter:var(--logo-tint); }
 .brand .brand-tag{
   font-family:var(--font-mono); font-size:.62rem; letter-spacing:.24em;
   text-transform:uppercase; color:var(--bronze-2);
@@ -262,15 +265,19 @@ body.nav-locked{ overflow:hidden; }
    HERO — fix #1: clear separation from header, full image
    ============================================================ */
 .hero{
-  position:relative; min-height:92vh;
+  position:relative; min-height:78vh;
   display:flex; align-items:flex-end;
   color:var(--white);
-  /* header clearance + breathing room so content never overlaps */
-  padding-top:calc(var(--header-h) + clamp(48px, 7vh, 90px));
-  padding-bottom:clamp(64px, 8vh, 104px);
+  padding-bottom:clamp(56px, 7vh, 88px);
   isolation:isolate; overflow:hidden;
 }
 .hero.short{ min-height:72vh; }
+/* .flush zeroes section padding at higher specificity than .hero,
+   so the hero's bottom padding is restored here; top clearance
+   is handled on .hero .wrap below */
+section.hero.flush{
+  padding-bottom:clamp(56px, 7vh, 88px);
+}
 .hero-media{ position:absolute; inset:0; z-index:-2; }
 .hero-media img{
   width:100%; height:100%; object-fit:cover;
@@ -281,7 +288,12 @@ body.nav-locked{ overflow:hidden; }
   content:""; position:absolute; inset:0; z-index:-1;
   background:linear-gradient(178deg, rgba(12,26,43,.42) 0%, rgba(12,26,43,.28) 40%, rgba(12,26,43,.86) 100%);
 }
-.hero .wrap{ position:relative; }
+.hero .wrap{
+  position:relative;
+  /* clearance lives on the wrap itself — immune to section.flush,
+     so hero text can never sit under the fixed header */
+  padding-top:calc(var(--header-h) + 28px);
+}
 .hero .docket .code{ color:var(--bronze-2); }
 .hero .docket .rule{ background:rgba(194,154,69,.5); max-width:220px; }
 .hero h1{ max-width:16ch; margin-bottom:20px; }
@@ -656,10 +668,22 @@ body.nav-locked{ overflow:hidden; }
   gap:clamp(30px,4vw,60px); padding-bottom:56px;
 }
 .f-brand .logo-chip{
-  background:var(--paper-2); border-radius:12px; padding:8px 14px;
+  background:transparent; padding:0;
   display:inline-flex; margin-bottom:20px;
 }
-.f-brand img{ height:40px; width:auto; }
+.f-brand img{ height:55px; width:auto; filter:var(--logo-tint); }
+.f-social{ display:flex; gap:10px; margin-top:20px; }
+.f-social a{
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:#AEBDCD; border:1px solid rgba(255,255,255,.16);
+  transition:color .3s, border-color .3s, transform .3s var(--ease), background .3s;
+}
+.f-social a:hover{
+  color:var(--ink); background:var(--bronze-2);
+  border-color:var(--bronze-2); transform:translateY(-3px);
+}
+.f-social svg{ width:15px; height:15px; }
 .f-brand p{ font-size:.92rem; max-width:34ch; }
 .f-col h4{
   font-family:var(--font-mono); font-size:.7rem; letter-spacing:.24em;
@@ -768,7 +792,7 @@ body.nav-locked{ overflow:hidden; }
   .split.rev .split-media{ order:-1; }
   .split-media .frame img{ aspect-ratio:16/11; }
   .split-media .badge{ right:12px; bottom:-20px; padding:16px 20px; }
-  .hero{ min-height:88vh; }
+  .hero{ min-height:74vh; }
 }
 
 @media (max-width:640px){
