@@ -17,9 +17,9 @@
     <!-- ================= SIDEBAR ================= -->
     <aside class="dash-side" id="dashSide">
       <div class="side-brand">
-        <span class="logo-chip">
+        <span class="logo-chip"><a href="index.html">
           <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions">
-        </span>
+        </a></span>
         <span class="side-role">Client<br>Portal</span>
       </div>
 
@@ -106,7 +106,7 @@
             <div>
               <span class="h-code">§ Signed in as <span id="helloEmail">—</span></span>
               <h2>Good to see you back.</h2>
-              <p>You have <b>2 active matters</b>, <b>1 pending invoice</b> and a hearing on <b>14 July</b>.</p>
+              <p>You have <b>3 active matters</b>, <b>1 pending invoice</b> and a hearing on <b>14 July</b>.</p>
             </div>
             <button class="btn btn-gold" data-go="appointments">Book Appointment
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -114,8 +114,8 @@
           </div>
 
           <div class="kpis">
-            <div class="kpi"><span class="k-label">Active Matters</span><b>2</b><span class="k-note">1 hearing scheduled</span></div>
-            <div class="kpi"><span class="k-label">Documents</span><b>14</b><span class="k-note">1 new this week</span></div>
+            <div class="kpi"><span class="k-label">Active Matters</span><b>3</b><span class="k-note">1 hearing scheduled</span></div>
+            <div class="kpi"><span class="k-label">Documents</span><b>16</b><span class="k-note">2 new this week</span></div>
             <div class="kpi"><span class="k-label">Amount Due</span><b>₹22,500</b><span class="k-note">INV-2244 · due 10 Jul</span></div>
             <div class="kpi"><span class="k-label">Next Hearing</span><b>14 Jul</b><span class="k-note">City Civil Court, Hall 8</span></div>
           </div>
@@ -148,6 +148,12 @@
                     <div class="bar" style="margin-top:8px;"><i data-w="45%"></i></div>
                   </div>
                 </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 12h6M9 16h6M9 8h2"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg></span>
+                  <div class="r-body"><b>SL/TAX-512 · GST assessment appeal</b><span>Filed · 30% complete</span>
+                    <div class="bar" style="margin-top:8px;"><i data-w="30%"></i></div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="dcard">
@@ -161,6 +167,10 @@
                 <div class="row-item">
                   <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></span>
                   <div class="r-body"><b>Review call · Adv. Meera</b><span>08 Jul · 5:30 PM · Google Meet</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>Appeal hearing · SL/TAX-512</b><span>22 Jul · 10:30 AM · GST Appellate Tribunal</span></div>
                 </div>
               </div>
             </div>
@@ -200,6 +210,18 @@
                     <td><span class="status pending">Pending</span></td>
                     <td><button class="mini-btn" data-view="SL/DRAFT-771|Lease agreement — Indiranagar shop|Contracts & Drafting|Adv. Vikram Shetty|Pending · awaiting your landlord's PAN|Opened 22 Jun 2026|₹8,000 (fixed)">View</button></td>
                   </tr>
+                  <tr data-status="active">
+                    <td><span class="t-title">SL/TAX-512</span><span class="t-sub">GST assessment appeal</span></td>
+                    <td>Taxation</td><td>Adv. Rohan Iyer</td>
+                    <td><span class="status active">Active</span></td>
+                    <td><button class="mini-btn" data-view="SL/TAX-512|GST assessment appeal|Taxation|Adv. Rohan Iyer|Active · appeal filed, hearing listed|Opened 15 Jun 2026|₹20,000 (fixed) + tribunal fees">View</button></td>
+                  </tr>
+                  <tr data-status="closed">
+                    <td><span class="t-title">SL/WILL-233</span><span class="t-sub">General power of attorney drafting</span></td>
+                    <td>Drafting</td><td>Adv. Vikram Shetty</td>
+                    <td><span class="status closed">Closed</span></td>
+                    <td><button class="mini-btn" data-view="SL/WILL-233|General power of attorney drafting|Contracts & Drafting|Adv. Vikram Shetty|Closed · registered 20 Apr 2026|Opened 01 Apr 2026|₹6,000 (fixed, settled)">View</button></td>
+                  </tr>
                   <tr data-status="closed">
                     <td><span class="t-title">SL/FAM-090</span><span class="t-sub">Registered will · Malleshwaram</span></td>
                     <td>Family</td><td>Adv. Meera Krishnan</td>
@@ -238,6 +260,16 @@
                 <div class="r-body"><b>Registered Will — SL/FAM-090.pdf</b><span>1.4 MB · 12 Mar</span></div>
                 <div class="r-end"><button class="mini-btn" data-download="Registered Will">Download</button></div>
               </div>
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>GST Appeal Memo — SL/TAX-512.pdf</b><span>1.1 MB · uploaded 03 Jul by Adv. Rohan</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="GST Appeal Memo">Download</button></div>
+              </div>
+              <div class="row-item">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg></span>
+                <div class="r-body"><b>Power of Attorney — signed.pdf</b><span>420 KB · 20 Apr</span></div>
+                <div class="r-end"><button class="mini-btn" data-download="Power of Attorney">Download</button></div>
+              </div>
             </div>
             <div class="dform actions" style="margin-top:20px;">
               <button class="mini-btn solid" id="uploadBtn">
@@ -270,10 +302,22 @@
                     <td><button class="mini-btn" data-download="Receipt INV-2231">Receipt</button></td>
                   </tr>
                   <tr>
+                    <td><span class="t-title">INV-2240</span><span class="t-sub">Paid 18 Jun 2026</span></td>
+                    <td>SL/TAX-512</td><td><b>₹20,000</b></td>
+                    <td><span class="status active">Paid</span></td>
+                    <td><button class="mini-btn" data-download="Receipt INV-2240">Receipt</button></td>
+                  </tr>
+                  <tr>
                     <td><span class="t-title">INV-2187</span><span class="t-sub">Paid 05 Mar 2026</span></td>
                     <td>SL/FAM-090</td><td><b>₹15,000</b></td>
                     <td><span class="status active">Paid</span></td>
                     <td><button class="mini-btn" data-download="Receipt INV-2187">Receipt</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="t-title">INV-2165</span><span class="t-sub">Paid 20 Apr 2026</span></td>
+                    <td>SL/WILL-233</td><td><b>₹6,000</b></td>
+                    <td><span class="status active">Paid</span></td>
+                    <td><button class="mini-btn" data-download="Receipt INV-2165">Receipt</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -294,7 +338,7 @@
                     <select id="apptDesk">
                       <option>Property &amp; Title</option><option>Civil Litigation</option>
                       <option>Corporate</option><option>Startup</option>
-                      <option>Family</option><option>Drafting</option>
+                      <option>Family</option><option>Drafting</option><option>Taxation</option>
                     </select>
                   </div>
                   <div class="field">
@@ -331,6 +375,11 @@
                   <div class="r-body"><b>Review call · Property desk</b><span>08 Jul · 5:30 PM · Video call</span></div>
                   <div class="r-end"><span class="status active">Confirmed</span></div>
                 </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>Appeal prep · Taxation desk</b><span>19 Jul · 12:00 PM · In chambers</span></div>
+                  <div class="r-end"><span class="status pending">Requested</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -338,36 +387,60 @@
 
         <!-- ============ PROFILE ============ -->
         <section class="panel" id="panel-profile">
-          <div class="dcard" style="max-width:640px;">
-            <h2>Profile</h2>
-            <p class="sub">Signed in as <b id="profileEmailInline">—</b></p>
-            <form class="dform" id="profileForm" novalidate>
-              <div class="frow">
-                <div class="field">
-                  <label for="pfName">Full name</label>
-                  <input type="text" id="pfName" maxlength="16" placeholder="Letters only, max 16" data-req>
-                  <span class="err-msg">Letters only, up to 16 characters.</span>
+          <div class="dgrid-2">
+            <div class="dcard">
+              <h2>Profile</h2>
+              <p class="sub">Signed in as <b id="profileEmailInline">—</b></p>
+              <form class="dform" id="profileForm" novalidate>
+                <div class="frow">
+                  <div class="field">
+                    <label for="pfName">Full name</label>
+                    <input type="text" id="pfName" maxlength="16" placeholder="Letters only, max 16" data-req>
+                    <span class="err-msg">Letters only, up to 16 characters.</span>
+                  </div>
+                  <div class="field">
+                    <label for="pfPhone">Phone</label>
+                    <input type="tel" id="pfPhone" maxlength="10" inputmode="numeric" placeholder="10-digit mobile" data-req>
+                    <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                  </div>
                 </div>
                 <div class="field">
-                  <label for="pfPhone">Phone</label>
-                  <input type="tel" id="pfPhone" maxlength="10" inputmode="numeric" placeholder="10-digit mobile" data-req>
-                  <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                  <label for="pfEmail">Email (sign-in ID)</label>
+                  <input type="email" id="pfEmail" readonly style="background:#F0EBDF; cursor:not-allowed;">
+                </div>
+                <div class="field">
+                  <label for="pfCity">City</label>
+                  <input type="text" id="pfCity" placeholder="Bengaluru">
+                </div>
+                <div class="form-ok" id="profileOk">Profile saved. Your desk has the updated details.</div>
+                <div class="actions">
+                  <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Save Changes</button>
+                  <button type="button" class="btn btn-ghost" id="profileCancel" style="padding:13px 26px;">Cancel</button>
+                </div>
+              </form>
+            </div>
+            <div class="dcard">
+              <h2>Account summary</h2>
+              <p class="sub">A quick look at your relationship with the firm.</p>
+              <div class="row-list">
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 6h6l2 2h8v11H4z"/></svg></span>
+                  <div class="r-body"><b>Client since</b><span>19 Jan 2026</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c.7-3.2 3.2-5 6.5-5s5.8 1.8 6.5 5"/></svg></span>
+                  <div class="r-body"><b>Matters on file</b><span>6 total · 3 active</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span>
+                  <div class="r-body"><b>Total billed to date</b><span>₹1,08,000 across 6 invoices</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M18 9a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7M10.5 20a1.8 1.8 0 0 0 3 0"/></svg></span>
+                  <div class="r-body"><b>Preferred contact</b><span>WhatsApp, evenings after 6 PM</span></div>
                 </div>
               </div>
-              <div class="field">
-                <label for="pfEmail">Email (sign-in ID)</label>
-                <input type="email" id="pfEmail" readonly style="background:#F0EBDF; cursor:not-allowed;">
-              </div>
-              <div class="field">
-                <label for="pfCity">City</label>
-                <input type="text" id="pfCity" placeholder="Bengaluru">
-              </div>
-              <div class="form-ok" id="profileOk">Profile saved. Your desk has the updated details.</div>
-              <div class="actions">
-                <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Save Changes</button>
-                <button type="button" class="btn btn-ghost" id="profileCancel" style="padding:13px 26px;">Cancel</button>
-              </div>
-            </form>
+            </div>
           </div>
         </section>
 

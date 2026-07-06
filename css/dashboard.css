@@ -77,7 +77,7 @@ body.dash{
   background:rgba(255,253,248,.92); backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
   padding:14px clamp(16px,3vw,32px);
-  display:flex; align-items:center; gap:16px;
+  display:flex; align-items:center; gap:16px;    
 }
 .dash-top .page-title{ margin-right:auto; min-width:0; }
 .dash-top .page-title .crumb{
@@ -163,7 +163,12 @@ body.dash{
 .notif-panel li span{ color:var(--muted); display:block; font-size:.72rem; margin-top:2px; }
 
 /* ---------- content panels ---------- */
-.dash-body{ padding:clamp(18px,3vw,32px); display:grid; gap:22px; }
+/* ---------- content ---------- */
+.dash-body{
+  padding:05px clamp(18px,3vw,32px) 10px;
+  display:grid;
+  gap:22px;
+}
 .panel{ display:none; animation:panelIn .5s var(--ease); }
 .panel.on{ display:grid; gap:22px; }
 @keyframes panelIn{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
@@ -474,14 +479,46 @@ body.dash{
   .dash-top .page-title h1{ font-size:1rem; }
   .dash-body{ padding:14px 12px 24px; }
   .dcard{ padding:16px 14px; }
+  .kpi{ padding:14px 16px; }
   .kpi b{ font-size:1.6rem; }
+  .kpi::after{ font-size:3rem; }                  /* watermark no longer crowds the number on the narrowest phones */
   .hello{ padding:20px 16px; }
   .hello h2{ font-size:1.25rem; }
   .row-item .r-end{ padding-left:0; }             /* full-width action row */
   .table-scroll{ margin:0 -14px; padding:0 14px; }
+
+  /* chip-row was still bleeding by the ≤560 card padding (16px) against
+     this breakpoint's 14px card padding, so filter chips overhung the
+     card edge by 2px and looked clipped — align the bleed to match */
+  .chip-row{ margin:0 -14px 14px; padding-left:14px; padding-right:14px; }
 }
 
 @media (prefers-reduced-motion:reduce){
   .panel, .toast{ animation:none; }
   .dash-side, .notif-panel, .modal{ transition:none; }
+}
+
+/* =========================================
+   Reduce gap below top header
+========================================= */
+
+.dash-top{
+    padding:8px 22px;
+    min-height:72px;
+}
+
+.dash-body{
+    padding-top:1px !important;
+}
+
+.panel.on{
+    gap:18px;
+}
+
+.hello{
+    margin-top:0 !important;
+}
+
+.kpis{
+    margin-top:0;
 }

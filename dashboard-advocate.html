@@ -17,9 +17,9 @@
     <!-- ================= SIDEBAR ================= -->
     <aside class="dash-side" id="dashSide">
       <div class="side-brand">
-        <span class="logo-chip">
+        <span class="logo-chip"><a href="index.html">
           <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions">
-        </span>
+       </a> </span>
         <span class="side-role">Advocate<br>Desk</span>
       </div>
 
@@ -106,7 +106,7 @@
             <div>
               <span class="h-code">§ Signed in as <span id="helloEmail">—</span></span>
               <h2>The desk, at a glance.</h2>
-              <p>You have <b>8 open files</b>, <b>2 hearings this week</b> and <b>₹64,500 in unpaid invoices</b>.</p>
+              <p>You have <b>8 open files</b>, <b>4 hearings on the calendar</b> and <b>₹92,500 in unpaid invoices</b>.</p>
             </div>
             <button class="btn btn-gold" data-go="hearings">This Week's Cause List
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -116,7 +116,7 @@
           <div class="kpis">
             <div class="kpi"><span class="k-label">Open Files</span><b>8</b><span class="k-note">2 in evidence stage</span></div>
             <div class="kpi"><span class="k-label">Hearings · Week</span><b>2</b><span class="k-note">Next: Mon 14 Jul</span></div>
-            <div class="kpi"><span class="k-label">Unpaid Invoices</span><b>₹64,500</b><span class="k-note">3 pending</span></div>
+            <div class="kpi"><span class="k-label">Unpaid Invoices</span><b>₹92,500</b><span class="k-note">4 pending</span></div>
             <div class="kpi"><span class="k-label">Status Notes Due</span><b>3</b><span class="k-note">Fortnightly cycle</span></div>
           </div>
 
@@ -151,6 +151,11 @@
                   <div class="r-body"><b>SL/START-330 · ESOP scheme draft</b><span>Due 16 Jul · client: Loopkart</span></div>
                   <div class="r-end"><span class="status active">On track</span></div>
                 </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+                  <div class="r-body"><b>SL/TAX-512 · GST appeal memo</b><span>Due 12 Jul · client: M. Joshi</span></div>
+                  <div class="r-end"><span class="status pending">Due soon</span></div>
+                </div>
               </div>
             </div>
             <div class="dcard">
@@ -158,8 +163,8 @@
               <p class="sub">Open files by stage.</p>
               <div class="row-list">
                 <div class="row-item"><div class="r-body"><b>Drafting</b><span>3 files</span><div class="bar" style="margin-top:8px;"><i data-w="38%"></i></div></div></div>
-                <div class="row-item"><div class="r-body"><b>Evidence / hearing</b><span>2 files</span><div class="bar" style="margin-top:8px;"><i data-w="25%"></i></div></div></div>
-                <div class="row-item"><div class="r-body"><b>Awaiting client input</b><span>3 files</span><div class="bar" style="margin-top:8px;"><i data-w="38%"></i></div></div></div>
+                <div class="row-item"><div class="r-body"><b>Evidence / hearing</b><span>3 files</span><div class="bar" style="margin-top:8px;"><i data-w="38%"></i></div></div></div>
+                <div class="row-item"><div class="r-body"><b>Awaiting client input</b><span>2 files</span><div class="bar" style="margin-top:8px;"><i data-w="24%"></i></div></div></div>
               </div>
             </div>
           </div>
@@ -204,6 +209,24 @@
                     <td><span class="status active">Active</span></td>
                     <td><select class="mini-btn stage-set" style="appearance:none;"><option>Set stage…</option><option>Drafting</option><option>Filed</option><option>Evidence</option><option>Arguments</option><option>Closed</option></select></td>
                   </tr>
+                  <tr data-status="active">
+                    <td><span class="t-title">SL/CORP-455</span><span class="t-sub">Injunction vs Bright Textiles</span></td>
+                    <td>Anil Rao</td><td>Arguments</td>
+                    <td><span class="status active">Active</span></td>
+                    <td><select class="mini-btn stage-set" style="appearance:none;"><option>Set stage…</option><option>Drafting</option><option>Filed</option><option>Evidence</option><option>Arguments</option><option>Closed</option></select></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><span class="t-title">SL/TAX-512</span><span class="t-sub">GST assessment appeal</span></td>
+                    <td>Meenal Joshi</td><td>Filed</td>
+                    <td><span class="status active">Active</span></td>
+                    <td><select class="mini-btn stage-set" style="appearance:none;"><option>Set stage…</option><option>Drafting</option><option>Filed</option><option>Evidence</option><option>Arguments</option><option>Closed</option></select></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><span class="t-title">SL/CIVIL-140</span><span class="t-sub">Partition suit — ancestral property</span></td>
+                    <td>Ganesh Iyer</td><td>Awaiting documents</td>
+                    <td><span class="status pending">Awaiting Client</span></td>
+                    <td><button class="mini-btn nudge-btn">Send Reminder</button></td>
+                  </tr>
                   <tr data-status="closed">
                     <td><span class="t-title">SL/FAM-090</span><span class="t-sub">Registered will · Malleshwaram</span></td>
                     <td>Lakshmi Venkatesh</td><td>Registered</td>
@@ -233,6 +256,16 @@
                   <div class="r-body"><b>SL/CORP-455 · Injunction mention</b><span>Thu 17 Jul · 2:30 PM · Karnataka High Court</span></div>
                   <div class="r-end"><button class="mini-btn prep-btn">Mark Prepared</button></div>
                 </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>SL/TAX-512 · Appeal hearing</b><span>Tue 22 Jul · 10:30 AM · GST Appellate Tribunal</span></div>
+                  <div class="r-end"><button class="mini-btn prep-btn">Mark Prepared</button></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                  <div class="r-body"><b>SL/CIVIL-140 · First hearing</b><span>Fri 25 Jul · 3:00 PM · City Civil Court, Hall 3</span></div>
+                  <div class="r-end"><button class="mini-btn prep-btn">Mark Prepared</button></div>
+                </div>
               </div>
             </div>
             <div class="dcard">
@@ -241,7 +274,7 @@
               <form class="dform" id="hearingForm" novalidate>
                 <div class="field">
                   <label for="hFile">Case file</label>
-                  <select id="hFile"><option>SL/CIVIL-118</option><option>SL/PROP-204</option><option>SL/CORP-455</option><option>SL/START-330</option></select>
+                  <select id="hFile"><option>SL/CIVIL-118</option><option>SL/PROP-204</option><option>SL/CORP-455</option><option>SL/START-330</option><option>SL/TAX-512</option><option>SL/CIVIL-140</option></select>
                 </div>
                 <div class="frow">
                   <div class="field">
@@ -292,6 +325,21 @@
                 <div class="r-body"><b>Suresh Gowda</b><span>Basavanagudi · SL/DRAFT-771</span></div>
                 <div class="r-end"><button class="mini-btn call-btn" data-name="Suresh Gowda">Call</button><button class="mini-btn note-btn" data-name="Suresh Gowda">Status Note</button></div>
               </div>
+              <div class="row-item" data-key="anil rao sl/corp-455 bright textiles">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
+                <div class="r-body"><b>Anil Rao</b><span>Bright Textiles Pvt. Ltd. · SL/CORP-455</span></div>
+                <div class="r-end"><button class="mini-btn call-btn" data-name="Anil Rao">Call</button><button class="mini-btn note-btn" data-name="Anil Rao">Status Note</button></div>
+              </div>
+              <div class="row-item" data-key="meenal joshi sl/tax-512 gst">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
+                <div class="r-body"><b>Meenal Joshi</b><span>GST assessment appeal · SL/TAX-512</span></div>
+                <div class="r-end"><button class="mini-btn call-btn" data-name="Meenal Joshi">Call</button><button class="mini-btn note-btn" data-name="Meenal Joshi">Status Note</button></div>
+              </div>
+              <div class="row-item" data-key="ganesh iyer sl/civil-140 partition">
+                <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
+                <div class="r-body"><b>Ganesh Iyer</b><span>Partition suit · SL/CIVIL-140</span></div>
+                <div class="r-end"><button class="mini-btn call-btn" data-name="Ganesh Iyer">Call</button><button class="mini-btn note-btn" data-name="Ganesh Iyer">Status Note</button></div>
+              </div>
             </div>
           </div>
         </section>
@@ -329,6 +377,18 @@
                     <td><span class="status active">Paid</span></td>
                     <td><button class="mini-btn" data-download="Receipt INV-2231">Receipt</button></td>
                   </tr>
+                  <tr>
+                    <td><span class="t-title">INV-2249</span><span class="t-sub">Due 20 Jul</span></td>
+                    <td>Anil Rao</td><td><b>₹28,000</b></td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><button class="mini-btn solid mark-paid">Mark Paid</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="t-title">INV-2240</span><span class="t-sub">Paid 18 Jun</span></td>
+                    <td>Meenal Joshi</td><td><b>₹20,000</b></td>
+                    <td><span class="status active">Paid</span></td>
+                    <td><button class="mini-btn" data-download="Receipt INV-2240">Receipt</button></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -337,42 +397,66 @@
 
         <!-- ============ PROFILE ============ -->
         <section class="panel" id="panel-profile">
-          <div class="dcard" style="max-width:640px;">
-            <h2>Profile</h2>
-            <p class="sub">Signed in as <b id="profileEmailInline">—</b></p>
-            <form class="dform" id="profileForm" novalidate>
-              <div class="frow">
-                <div class="field">
-                  <label for="pfName">Full name</label>
-                  <input type="text" id="pfName" maxlength="16" placeholder="Letters only, max 16" data-req>
-                  <span class="err-msg">Letters only, up to 16 characters.</span>
+          <div class="dgrid-2">
+            <div class="dcard">
+              <h2>Profile</h2>
+              <p class="sub">Signed in as <b id="profileEmailInline">—</b></p>
+              <form class="dform" id="profileForm" novalidate>
+                <div class="frow">
+                  <div class="field">
+                    <label for="pfName">Full name</label>
+                    <input type="text" id="pfName" maxlength="16" placeholder="Letters only, max 16" data-req>
+                    <span class="err-msg">Letters only, up to 16 characters.</span>
+                  </div>
+                  <div class="field">
+                    <label for="pfPhone">Phone</label>
+                    <input type="tel" id="pfPhone" maxlength="10" inputmode="numeric" placeholder="10-digit mobile" data-req>
+                    <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                  </div>
                 </div>
                 <div class="field">
-                  <label for="pfPhone">Phone</label>
-                  <input type="tel" id="pfPhone" maxlength="10" inputmode="numeric" placeholder="10-digit mobile" data-req>
-                  <span class="err-msg">Enter a valid 10-digit Indian mobile number.</span>
+                  <label for="pfEmail">Email (sign-in ID)</label>
+                  <input type="email" id="pfEmail" readonly style="background:#F0EBDF; cursor:not-allowed;">
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="pfEnrol">Enrolment no.</label>
+                    <input type="text" id="pfEnrol" placeholder="KAR/____/____">
+                  </div>
+                  <div class="field">
+                    <label for="pfDesk">Desk</label>
+                    <select id="pfDesk"><option>Civil Litigation</option><option>Property &amp; Title</option><option>Corporate</option><option>Startup</option><option>Family</option><option>Drafting</option></select>
+                  </div>
+                </div>
+                <div class="form-ok" id="profileOk">Profile saved.</div>
+                <div class="actions">
+                  <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Save Changes</button>
+                  <button type="button" class="btn btn-ghost" id="profileCancel" style="padding:13px 26px;">Cancel</button>
+                </div>
+              </form>
+            </div>
+            <div class="dcard">
+              <h2>Practice snapshot</h2>
+              <p class="sub">How your desk has been running this year.</p>
+              <div class="row-list">
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 6h6l2 2h8v11H4z"/></svg></span>
+                  <div class="r-body"><b>Files handled, 2026</b><span>21 opened · 13 closed</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+                  <div class="r-body"><b>Avg. response to client</b><span>4h 20m across all desks</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span>
+                  <div class="r-body"><b>Fees collected, 2026</b><span>₹4,86,000 across 21 invoices</span></div>
+                </div>
+                <div class="row-item">
+                  <span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c.7-3.2 3.2-5 6.5-5s5.8 1.8 6.5 5"/></svg></span>
+                  <div class="r-body"><b>Active clients</b><span>7 on the desk right now</span></div>
                 </div>
               </div>
-              <div class="field">
-                <label for="pfEmail">Email (sign-in ID)</label>
-                <input type="email" id="pfEmail" readonly style="background:#F0EBDF; cursor:not-allowed;">
-              </div>
-              <div class="frow">
-                <div class="field">
-                  <label for="pfEnrol">Enrolment no.</label>
-                  <input type="text" id="pfEnrol" placeholder="KAR/____/____">
-                </div>
-                <div class="field">
-                  <label for="pfDesk">Desk</label>
-                  <select id="pfDesk"><option>Civil Litigation</option><option>Property &amp; Title</option><option>Corporate</option><option>Startup</option><option>Family</option><option>Drafting</option></select>
-                </div>
-              </div>
-              <div class="form-ok" id="profileOk">Profile saved.</div>
-              <div class="actions">
-                <button type="submit" class="btn btn-gold" style="padding:13px 26px;">Save Changes</button>
-                <button type="button" class="btn btn-ghost" id="profileCancel" style="padding:13px 26px;">Cancel</button>
-              </div>
-            </form>
+            </div>
           </div>
         </section>
 
