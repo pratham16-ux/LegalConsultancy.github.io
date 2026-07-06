@@ -38,7 +38,7 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-x:clip; }
 body{
   font-family:var(--font-body);
   background:var(--paper);
@@ -253,6 +253,7 @@ section.flush{ padding-block:0; }
 .mobile-panel.open a:nth-child(3){ transition-delay:.22s }
 .mobile-panel.open a:nth-child(4){ transition-delay:.28s }
 .mobile-panel.open a:nth-child(5){ transition-delay:.34s }
+.mobile-panel.open a:nth-child(6){ transition-delay:.40s }
 .mobile-panel .panel-foot{
   margin-top:34px; font-family:var(--font-mono); font-size:.72rem;
   letter-spacing:.18em; color:#8DA0B6; text-transform:uppercase;
@@ -260,6 +261,17 @@ section.flush{ padding-block:0; }
 }
 .mobile-panel.open .panel-foot{ opacity:1; }
 body.nav-locked{ overflow:hidden; }
+
+/* while the mobile panel is open, lift the header above it so the
+   X stays clickable; strip the scrolled chrome so no white bar shows */
+body.nav-locked .site-header{
+  z-index:230;
+  background:transparent;
+  backdrop-filter:none;
+  box-shadow:none;
+  border-bottom-color:transparent;
+}
+body.nav-locked .site-header .brand-tag{ color:#E8D9AF; }
 
 /* ============================================================
    HERO — fix #1: clear separation from header, full image
@@ -796,6 +808,8 @@ section.hero.flush{
 }
 
 @media (max-width:640px){
+  .rv-left{ transform:translateX(-26px); }
+  .rv-right{ transform:translateX(26px); }
   .grid-3, .grid-2, .grid-4, .steps{ grid-template-columns:1fr; }
   .gallery-grid{ grid-template-columns:1fr 1fr; grid-auto-rows:170px; }
   .g-item.wide{ grid-column:span 2; }
@@ -809,7 +823,7 @@ section.hero.flush{
   .cta-banner{ padding:42px 26px; }
   .footer-grid{ grid-template-columns:1fr; gap:34px; }
   .btn{ padding:14px 24px; }
-  .brand img{ height:34px; }
+  .brand img{ height:54px; }
 }
 
 /* reduced motion */
@@ -832,3 +846,22 @@ section.hero.flush{
   color:var(--ink); border-color:var(--line-gold);
 }
 .site-header.scrolled .btn-signin:hover{ color:var(--white); }
+
+/* ============================================================
+   MOBILE PANEL CTA — Book Consultation lives in the hamburger
+   ============================================================ */
+@media (max-width:900px){
+  .header-cta{ display:none; }   /* re-asserted after the late display:flex above */
+}
+.mobile-panel .panel-cta{
+  margin-top:34px;
+  display:inline-flex; width:max-content;
+  align-items:center; gap:10px;
+  font-family:var(--font-body); font-weight:700; font-size:.95rem;
+  padding:16px 30px; border-bottom:0;
+  opacity:0; transform:translateY(24px);
+  transition:opacity .5s var(--ease) .46s, transform .5s var(--ease) .46s,
+             background .3s, color .3s;
+}
+.mobile-panel .panel-cta svg{ width:16px; height:16px; }
+.mobile-panel.open .panel-cta{ opacity:1; transform:translateY(0); }

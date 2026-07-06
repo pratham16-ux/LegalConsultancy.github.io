@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In — Stackly Legal Consultancy</title>
-  <meta name="description" content="Sign in to the Stackly Legal client or advocate portal.">
+  <title>Create Account — Stackly Legal Consultancy</title>
+  <meta name="description" content="Create your Stackly Legal client or advocate portal account.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -61,16 +61,16 @@
         radial-gradient(600px 400px at 110% -10%, rgba(169,129,47,.10), transparent 60%),
         var(--paper);
     }
-    .auth-card{ width:min(440px,100%); animation:fadeSlide .8s var(--ease) .15s both; }
+    .auth-card{ width:min(460px,100%); animation:fadeSlide .8s var(--ease) .15s both; }
     .auth-card .docket{ margin-bottom:14px; }
-    .auth-card h1{ font-size:clamp(1.9rem,3.4vw,2.5rem); margin-bottom:8px; }
-    .auth-card .lead{ font-size:.95rem; margin-bottom:28px; }
+    .auth-card h1{ font-size:clamp(1.8rem,3.2vw,2.3rem); margin-bottom:8px; }
+    .auth-card .lead{ font-size:.95rem; margin-bottom:24px; }
 
-    /* role segmented control — the two options */
+    /* role segmented control */
     .role-switch{
       position:relative; display:grid; grid-template-columns:1fr 1fr;
       background:var(--white); border:1.5px solid var(--line);
-      border-radius:16px; padding:6px; margin-bottom:26px;
+      border-radius:16px; padding:6px; margin-bottom:24px;
     }
     .role-switch .slider{
       position:absolute; top:6px; bottom:6px; left:6px;
@@ -93,6 +93,10 @@
     .role-switch button svg{ width:20px; height:20px; margin-bottom:2px; }
     .role-switch button.on{ color:var(--bronze-2); }
 
+    /* two-up field row */
+    .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width:480px){ .field-row{ grid-template-columns:1fr; gap:0; } }
+
     .pw-wrap{ position:relative; }
     .pw-wrap input{ padding-right:52px; }
     .pw-eye{
@@ -104,14 +108,19 @@
     .pw-eye:hover{ color:var(--bronze); background:var(--bronze-soft); }
     .pw-eye svg{ width:18px; height:18px; }
 
-    .auth-meta{
-      display:flex; justify-content:space-between; align-items:center;
-      margin:2px 0 22px; font-size:.8rem;
+    /* terms row */
+    .terms-row{ margin:2px 0 20px; }
+    .terms-row label{
+      display:flex; gap:10px; align-items:flex-start;
+      font-size:.8rem; color:var(--muted); cursor:pointer; line-height:1.55;
     }
-    .auth-meta label{ display:flex; gap:8px; align-items:center; color:var(--muted); cursor:pointer; }
-    .auth-meta input{ accent-color:var(--bronze); width:15px; height:15px; }
-    .auth-meta a{ color:var(--bronze); font-weight:700; }
-    .auth-meta a:hover{ text-decoration:underline; }
+    .terms-row input{ accent-color:var(--bronze); width:15px; height:15px; margin-top:3px; flex:none; }
+    .terms-row a{ color:var(--bronze); font-weight:700; }
+    .terms-row a:hover{ text-decoration:underline; }
+    .terms-row .err-msg{
+      color:#B23A3A; font-size:.78rem; display:none; margin-top:6px;
+    }
+    .terms-row.invalid .err-msg{ display:block; }
 
     .btn-signin{ width:100%; justify-content:center; padding:16px; font-size:.95rem; }
     .auth-alt{
@@ -120,7 +129,7 @@
     .auth-alt a{ color:var(--bronze); font-weight:700; }
     .auth-alt a:hover{ text-decoration:underline; }
     .demo-note{
-      margin-top:22px; background:var(--bronze-soft); border:1px dashed var(--line-gold);
+      margin-top:20px; background:var(--bronze-soft); border:1px dashed var(--line-gold);
       border-radius:12px; padding:12px 16px;
       font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em;
       color:#7A5E22; line-height:1.7;
@@ -166,7 +175,7 @@
 
     @media (max-width:920px){
       .auth-shell{ grid-template-columns:1fr; }
-      .auth-visual{ min-height:34vh; padding:22px; }
+      .auth-visual{ min-height:30vh; padding:22px; }
       .auth-quote{ display:none; }
       .auth-visual .v-foot{ display:none; }
       .auth-visual{ justify-content:flex-start; }
@@ -185,26 +194,26 @@
 
     <!-- left: brand panel -->
     <aside class="auth-visual">
-      <img class="bg" src="https://wsrv.nl/?url=images.unsplash.com/photo-1505664194779-8beaceb93744&w=1100&h=1300&fit=cover&output=webp&q=55" alt="">
+      <img class="bg" src="https://wsrv.nl/?url=images.unsplash.com/photo-1589829545856-d10d557cf95f&w=1100&h=1300&fit=cover&output=webp&q=55" alt="">
       <a class="logo-chip" href="index.html">
         <img src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=260&h=104&output=webp&q=80&fit=inside" alt="Stackly — SNAB Solutions">
       </a>
       <div class="auth-quote">
         <span class="q-mark">"</span>
-        <p>Every file, hearing date and invoice — one door, two keys. Sign in as a client to follow your matter, or as an advocate to run the desk.</p>
-        <span class="q-who">Stackly Legal · Portal § 2026</span>
+        <p>Open your file with the firm once — then every hearing date, document and invoice stays a single sign-in away.</p>
+        <span class="q-who">Stackly Legal · New Matter § 2026</span>
       </div>
       <span class="v-foot">Meridian Chambers · Richmond Road · Bengaluru 560025</span>
     </aside>
 
     <!-- right: form -->
     <main class="auth-pane">
-      <form class="auth-card" id="signinForm" novalidate>
-        <div class="docket"><span class="code">§ Portal Access</span><span class="rule"></span></div>
-        <h1>Welcome back.</h1>
-        <p class="lead">Choose how you're signing in today.</p>
+      <form class="auth-card" id="signupForm" novalidate>
+        <div class="docket"><span class="code">§ New Account</span><span class="rule"></span></div>
+        <h1>Open your file.</h1>
+        <p class="lead">Tell us who you are and how you'll use the portal.</p>
 
-        <!-- the two options -->
+        <!-- role picker -->
         <div class="role-switch" id="roleSwitch" data-role="client">
           <span class="slider"></span>
           <button type="button" class="on" data-pick="client">
@@ -217,6 +226,19 @@
           </button>
         </div>
 
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Aarav Menon" maxlength="16" autocomplete="name" data-req>
+            <span class="err-msg">Letters only, up to 16 characters.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Mobile number</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile" maxlength="10" inputmode="numeric" autocomplete="tel" data-req>
+            <span class="err-msg">Enter a valid 10-digit Indian mobile.</span>
+          </div>
+        </div>
+
         <div class="field">
           <label for="email">Email address</label>
           <input type="email" id="email" name="email" placeholder="you@example.in" autocomplete="email" data-req>
@@ -226,7 +248,7 @@
         <div class="field">
           <label for="password">Password</label>
           <div class="pw-wrap">
-            <input type="password" id="password" name="password" placeholder="Minimum 6 characters" autocomplete="current-password" data-req>
+            <input type="password" id="password" name="password" placeholder="Minimum 6 characters" autocomplete="new-password" data-req>
             <button type="button" class="pw-eye" id="pwEye" aria-label="Show password">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
             </button>
@@ -234,19 +256,33 @@
           <span class="err-msg">Password must be at least 6 characters.</span>
         </div>
 
-        <div class="auth-meta">
-          <label><input type="checkbox" id="remember"> Keep me signed in</label>
-          <a href="contact.html">Forgot password?</a>
+        <div class="field">
+          <label for="confirm">Confirm password</label>
+          <div class="pw-wrap">
+            <input type="password" id="confirm" name="confirm" placeholder="Re-enter your password" autocomplete="new-password" data-req>
+            <button type="button" class="pw-eye" id="pwEye2" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
+            </button>
+          </div>
+          <span class="err-msg">Passwords do not match.</span>
+        </div>
+
+        <div class="terms-row" id="termsRow">
+          <label>
+            <input type="checkbox" id="terms">
+            <span>I agree to the firm's <a href="about.html">engagement terms</a> and consent to being contacted about my matter.</span>
+          </label>
+          <span class="err-msg">Please accept the engagement terms to continue.</span>
         </div>
 
         <button type="submit" class="btn btn-gold btn-signin">
-          Sign In
+          Create Account
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
 
-        <p class="auth-alt">New to the firm? <a href="signup.html">Create an account</a> · or <a href="contact.html">book a consultation</a></p>
+        <p class="auth-alt">Already have an account? <a href="signin.html">Sign in</a></p>
 
-        <p class="demo-note">DEMO · Any email + a 6-character password works. Pick Client or Advocate above — the portal routes you to the matching dashboard.</p>
+        <p class="demo-note">DEMO · No server involved — your details stay in this browser session. Pick Client or Advocate above and the portal opens the matching dashboard.</p>
       </form>
     </main>
   </div>
@@ -255,8 +291,8 @@
   <div class="go-veil" id="goVeil">
     <div>
       <div class="seal"><i>§</i></div>
-      <h2 id="goTitle">Signing you in…</h2>
-      <p id="goSub">Opening your dashboard</p>
+      <h2 id="goTitle">Opening your file…</h2>
+      <p id="goSub">Setting up your dashboard</p>
     </div>
   </div>
 
@@ -264,16 +300,20 @@
     (function () {
       "use strict";
 
-      var form = document.getElementById("signinForm");
+      var form = document.getElementById("signupForm");
       var roleSwitch = document.getElementById("roleSwitch");
+      var name = document.getElementById("name");
+      var phone = document.getElementById("phone");
       var email = document.getElementById("email");
       var password = document.getElementById("password");
-      var pwEye = document.getElementById("pwEye");
+      var confirm = document.getElementById("confirm");
+      var terms = document.getElementById("terms");
+      var termsRow = document.getElementById("termsRow");
       var veil = document.getElementById("goVeil");
       var goTitle = document.getElementById("goTitle");
       var goSub = document.getElementById("goSub");
 
-      /* role toggle — the two options */
+      /* role toggle */
       roleSwitch.querySelectorAll("[data-pick]").forEach(function (btn) {
         btn.addEventListener("click", function () {
           roleSwitch.setAttribute("data-role", btn.dataset.pick);
@@ -283,32 +323,52 @@
         });
       });
 
-      /* show / hide password */
-      pwEye.addEventListener("click", function () {
-        var show = password.type === "password";
-        password.type = show ? "text" : "password";
-        pwEye.setAttribute("aria-label", show ? "Hide password" : "Show password");
-        pwEye.style.color = show ? "var(--bronze)" : "";
+      /* show / hide password (both eyes) */
+      [["pwEye", password], ["pwEye2", confirm]].forEach(function (pair) {
+        var eye = document.getElementById(pair[0]);
+        var input = pair[1];
+        eye.addEventListener("click", function () {
+          var show = input.type === "password";
+          input.type = show ? "text" : "password";
+          eye.setAttribute("aria-label", show ? "Hide password" : "Show password");
+          eye.style.color = show ? "var(--bronze)" : "";
+        });
       });
 
       /* clear error state while typing */
-      [email, password].forEach(function (input) {
+      [name, phone, email, password, confirm].forEach(function (input) {
         input.addEventListener("input", function () {
           input.closest(".field").classList.remove("invalid");
         });
+      });
+      terms.addEventListener("change", function () {
+        termsRow.classList.remove("invalid");
+      });
+
+      /* keep phone digits-only as they type */
+      phone.addEventListener("input", function () {
+        phone.value = phone.value.replace(/\D/g, "").slice(0, 10);
       });
 
       /* submit */
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        var nameOk = /^[A-Za-z][A-Za-z ]{1,15}$/.test(name.value.trim());
+        var phoneOk = /^[6-9]\d{9}$/.test(phone.value.trim());
         var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
         var pwOk = password.value.trim().length >= 6;
+        var matchOk = pwOk && confirm.value === password.value;
+        var termsOk = terms.checked;
 
+        name.closest(".field").classList.toggle("invalid", !nameOk);
+        phone.closest(".field").classList.toggle("invalid", !phoneOk);
         email.closest(".field").classList.toggle("invalid", !emailOk);
         password.closest(".field").classList.toggle("invalid", !pwOk);
+        confirm.closest(".field").classList.toggle("invalid", !matchOk);
+        termsRow.classList.toggle("invalid", !termsOk);
 
-        if (!emailOk || !pwOk) {
+        if (!nameOk || !phoneOk || !emailOk || !pwOk || !matchOk || !termsOk) {
           form.classList.remove("shake");
           void form.offsetWidth;           // restart animation
           form.classList.add("shake");
@@ -317,6 +377,8 @@
 
         var role = roleSwitch.getAttribute("data-role");
         var user = {
+          name: name.value.trim(),
+          phone: phone.value.trim(),
           email: email.value.trim().toLowerCase(),
           role: role,
           signedInAt: new Date().toISOString()
@@ -324,7 +386,7 @@
         sessionStorage.setItem("stacklyLegalAuth", JSON.stringify(user));
 
         /* animated hand-off */
-        goTitle.textContent = role === "advocate" ? "Welcome, Counsel." : "Welcome back.";
+        goTitle.textContent = role === "advocate" ? "Welcome aboard, Counsel." : "Your file is open.";
         goSub.textContent = role === "advocate" ? "Opening the advocate desk" : "Opening your client dashboard";
         veil.classList.add("show");
 
@@ -334,19 +396,6 @@
             : "dashboard-client.html";
         }, 1100);
       });
-
-      /* already signed in? skip the form */
-      try {
-        var existing = JSON.parse(sessionStorage.getItem("stacklyLegalAuth") || "null");
-        if (existing && existing.role) {
-          // stay on page but preselect their last role
-          roleSwitch.setAttribute("data-role", existing.role);
-          roleSwitch.querySelectorAll("[data-pick]").forEach(function (b) {
-            b.classList.toggle("on", b.dataset.pick === existing.role);
-          });
-          email.value = existing.email || "";
-        }
-      } catch (err) { /* fresh session */ }
     })();
   </script>
 </body>

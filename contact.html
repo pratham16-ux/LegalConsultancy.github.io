@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,480;9..144,560;9..144,640&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/styles.css">
   <style>
     /* page-specific: contact layout */
@@ -46,17 +45,27 @@
     }
     .side-card .hrs b{ color:var(--bronze-2); font-weight:500; display:block; letter-spacing:.2em; text-transform:uppercase; margin-bottom:6px; }
 
-    #map{
-      height:440px; border-radius:var(--r-lg); border:1px solid var(--line);
-      box-shadow:var(--shadow-1); z-index:1;
+    .map-figure{ margin:0; }
+    .map-figure iframe{
+      width:100%; height:440px; border:0; display:block;
+      border-radius:var(--r-lg); outline:1px solid var(--line);
+      box-shadow:var(--shadow-1);
     }
+    .map-links{ margin-top:14px; text-align:right; }
+    .map-links a{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:700; font-size:.86rem; color:var(--bronze);
+      transition:color .3s;
+    }
+    .map-links a:hover{ color:var(--ink); }
+    .map-links svg{ width:14px; height:14px; }
     .visit-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:26px; }
     .visit-row .card{ padding:24px 22px; }
     .visit-row .card b{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bronze); display:block; margin-bottom:8px; }
     .visit-row .card p{ font-size:.9rem; }
 
     @media (max-width:1024px){ .form-shell{ grid-template-columns:1fr; } .side-card{ position:static; } }
-    @media (max-width:640px){ .form-row{ grid-template-columns:1fr; } .visit-row{ grid-template-columns:1fr; } #map{ height:320px; } }
+    @media (max-width:640px){ .form-row{ grid-template-columns:1fr; } .visit-row{ grid-template-columns:1fr; } .map-figure iframe{ height:320px; } }
   </style>
 </head>
 <body>
@@ -236,7 +245,18 @@
           <div class="docket"><span class="code">§ 02 · Find the Chambers</span><span class="rule"></span></div>
           <h2>Richmond Road, between the church and the flyover.</h2>
         </div>
-        <div id="map" class="rv rv-zoom" data-d="2" aria-label="Map showing Meridian Chambers, Richmond Road, Bengaluru"></div>
+        <figure class="map-figure rv rv-zoom" data-d="2">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=77.5896%2C12.9555%2C77.6196%2C12.9735&amp;layer=mapnik&amp;marker=12.9645%2C77.6046"
+            title="Map — Meridian Chambers, Richmond Road, Bengaluru"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <figcaption class="map-links">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Richmond+Road,+Bengaluru,+Karnataka+560025" target="_blank" rel="noopener">Get directions on Google Maps
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </figcaption>
+        </figure>
         <div class="visit-row">
           <article class="card rv rv-up" data-d="1"><b>By Metro</b><p>Purple Line to MG Road station, then a 10-minute auto down Richmond Road.</p></article>
           <article class="card rv rv-up" data-d="2"><b>Parking</b><p>Basement visitor parking at Meridian Chambers — tell the desk your car number when booking.</p></article>
@@ -407,27 +427,6 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </button>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/script.js"></script>
-  <script>
-    /* Leaflet map — Meridian Chambers, Richmond Road */
-    (function () {
-      if (typeof L === "undefined") return;
-      var spot = [12.9645, 77.6046];
-      var map = L.map("map", { scrollWheelZoom: false }).setView(spot, 15);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 19
-      }).addTo(map);
-      var pin = L.divIcon({
-        className: "",
-        html: '<div style="width:38px;height:38px;background:#A9812F;border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 8px 18px rgba(12,26,43,.35);display:grid;place-items:center;"><span style="transform:rotate(45deg);color:#fff;font-family:Georgia,serif;font-size:17px;">§</span></div>',
-        iconSize: [38, 38],
-        iconAnchor: [19, 38]
-      });
-      L.marker(spot, { icon: pin }).addTo(map)
-        .bindPopup("<b>Stackly Legal Consultancy</b><br>Meridian Chambers, Richmond Road");
-    })();
-  </script>
 </body>
 </html>
