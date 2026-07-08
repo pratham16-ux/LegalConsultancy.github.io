@@ -168,7 +168,7 @@ section.flush{ padding-block:0; }
   transition:transform .35s var(--ease);
 }
 .brand:hover .logo-chip{ transform:translateY(-2px); }
-.brand img{ height:55px; width:auto; filter:var(--logo-tint); }
+.brand img{ height:58px; width:auto; filter:var(--logo-tint); }
 .brand .brand-tag{
   font-family:var(--font-mono); font-size:.62rem; letter-spacing:.24em;
   text-transform:uppercase; color:var(--bronze-2);
